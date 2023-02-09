@@ -4,7 +4,7 @@ import { themeOptions } from "../components/theme";
 const theme = createTheme(themeOptions);
 
 const Home: any = () => {
-  return <h1>Welcome</h1>;
+  return <h1>Home</h1>;
 };
 
 export default Home;

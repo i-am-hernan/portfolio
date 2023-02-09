@@ -1,21 +1,8 @@
-import React from "react";
-import CloudIcon from "@mui/icons-material/Cloud";
-import MenuIcon from "@mui/icons-material/Menu";
-import AdbIcon from "@mui/icons-material/Menu";
+import { default as AdbIcon, default as MenuIcon } from "@mui/icons-material/Menu";
 import {
-  AppBar,
-  Box,
-  Toolbar,
-  IconButton,
-  Typography,
-  MenuItemTypeMap,
-  Container,
-  Button,
-  Menu,
-  Tooltip,
-  Avatar,
-  MenuItem,
+  AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography
 } from "@mui/material";
+import React from "react";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
