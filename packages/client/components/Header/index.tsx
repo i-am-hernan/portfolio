@@ -16,9 +16,9 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
+import CloudIcon from "@mui/icons-material/Cloud";
 
-const pages = ["about", "work", "contact"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const pages = ["about", "experience", "work", "contact"];
 
 export const Header = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -34,34 +34,48 @@ export const Header = () => {
     <AppBar>
       <Toolbar
         disableGutters
-        sx={{ justifyContent: "space-between", display: "flex" }}
+        sx={{
+          justifyContent: "space-between",
+          display: "flex",
+          px: 10,
+          bgcolor: "#FAF9F9",
+        }}
       >
-        <Typography
-          variant="h6"
-          noWrap
+        <IconButton
           component="a"
           href="/"
           sx={{
-            mr: 2,
             display: { xs: "none", md: "inline-block" },
-            fontFamily: "monospace",
-            fontWeight: 700,
-            letterSpacing: ".3rem",
-            textDecoration: "none",
+            color: "#01BAEF"
           }}
         >
-          {`<Hernán/>`}
-        </Typography>
+          <CloudIcon sx={{fontSize: "2rem"}} />
+        </IconButton>
+
         <Box sx={{ display: { xs: "none", md: "inline-block" } }}>
           {pages.map((page) => (
             <Button
               key={page}
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "white", display: "inline-block" }}
+              sx={{ color: "#01BAEF", display: "inline-block", px: 2 }}
             >
-              {page}
+              <Typography
+                sx={{
+                  fontFamily: "Cutive Mono, monospace;",
+                  fontSize: "0.8rem",
+                }}
+              >
+                {page}
+              </Typography>
             </Button>
           ))}
+          <Button
+            sx={{ color: "#01BAEF", borderColor: "#01BAEF" }}
+            size="small"
+            variant="outlined"
+          >
+            Resume
+          </Button>
         </Box>
         {/* <Typography
             variant="h5"
