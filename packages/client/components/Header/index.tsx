@@ -7,7 +7,9 @@ import {
   Menu,
   MenuItem,
   Toolbar,
-  Typography
+  Typography,
+  CardMedia,
+  Paper,
 } from "@mui/material";
 import { useState } from "react";
 
@@ -32,22 +34,60 @@ export const Header = () => {
           display: "flex",
           px: 6,
           bgcolor: "#FAF9F9",
+          py: 1
         }}
       >
-        <Typography
-          component="a"
-          href="/"
-          sx={{
-            display: { xs: "none", md: "inline-block" },
-            color: "#01BAEF",
-            textDecoration: "none",
-            fontSize: "1.3rem",
-            fontFamily: "Yomogi, cursive",
-          }}
-        >
-          Hernán
-        </Typography>
-
+        <Paper sx={{ border: 2, borderColor: "#01BAEF", borderRadius: 1 }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "flex-end",
+              bgcolor: "#01BAEF",
+              pr: 0.5,
+              py: "3px",
+            }}
+          >
+            <Box
+              sx={{
+                width: "7px",
+                height: "7px",
+                bgcolor: "#F55050",
+                borderRadius: "25%",
+              }}
+            ></Box>
+            <Box
+              sx={{
+                width: "7px",
+                height: "7px",
+                bgcolor: "#F2CD5C",
+                ml: "3px",
+                borderRadius: "25%",
+              }}
+            ></Box>
+            <Box
+              sx={{
+                width: "7px",
+                height: "7px",
+                bgcolor: "#379237",
+                ml: "3px",
+                borderRadius: "25%",
+              }}
+            ></Box>
+          </Box>
+          <Typography
+            component="a"
+            href="/"
+            sx={{
+              display: { xs: "inline-block" },
+              color: "#E07A5F",
+              textDecoration: "none",
+              fontSize: "1rem",
+              p: 0.5,
+            }}
+          >
+            {`<Hernán/>`}
+          </Typography>
+        </Paper>
         <Box sx={{ display: { xs: "none", md: "inline-block" } }}>
           {pages.map((page) => (
             <Button
@@ -73,19 +113,6 @@ export const Header = () => {
             Resume
           </Button>
         </Box>
-        <Typography
-          component="a"
-          href="/"
-          sx={{
-            display: { xs: "flex", md: "none" },
-            color: "#01BAEF",
-            textDecoration: "none",
-            fontSize: "1.3rem",
-            fontFamily: "Yomogi, cursive",
-          }}
-        >
-          Hernán
-        </Typography>
         <Box sx={{ display: { xs: "inline-block", md: "none" } }}>
           <IconButton
             size="large"
@@ -131,3 +158,11 @@ export const Header = () => {
     </AppBar>
   );
 };
+
+
+
+// rich black: #011627
+// process cyacn: #01BAEF
+// seasalt: #FAF9F9
+// sienna: #E07A5F
+// yellow-green: #8FC93A
