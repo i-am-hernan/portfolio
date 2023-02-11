@@ -1,22 +1,15 @@
-import {
-  default as AdbIcon,
-  default as MenuIcon,
-} from "@mui/icons-material/Menu";
+import { default as MenuIcon } from "@mui/icons-material/Menu";
 import {
   AppBar,
-  Avatar,
   Box,
   Button,
-  Container,
   IconButton,
   Menu,
   MenuItem,
   Toolbar,
-  Tooltip,
   Typography,
 } from "@mui/material";
 import { useState } from "react";
-import CloudIcon from "@mui/icons-material/Cloud";
 
 const pages = ["about", "experience", "work", "contact"];
 
@@ -37,32 +30,35 @@ export const Header = () => {
         sx={{
           justifyContent: "space-between",
           display: "flex",
-          px: 10,
+          px: 6,
           bgcolor: "#FAF9F9",
         }}
       >
-        <IconButton
+        <Typography
           component="a"
           href="/"
           sx={{
             display: { xs: "none", md: "inline-block" },
-            color: "#01BAEF"
+            color: "#01BAEF",
+            textDecoration: "none",
+            fontSize: "1.3rem",
+            fontFamily: "Yomogi, cursive",
           }}
         >
-          <CloudIcon sx={{fontSize: "2rem"}} />
-        </IconButton>
+          Hernán
+        </Typography>
 
         <Box sx={{ display: { xs: "none", md: "inline-block" } }}>
           {pages.map((page) => (
             <Button
               key={page}
               onClick={handleCloseNavMenu}
-              sx={{ color: "#01BAEF", display: "inline-block", px: 2 }}
+              sx={{ color: "#011627", display: "inline-block", px: 1 }}
             >
               <Typography
                 sx={{
                   fontFamily: "Cutive Mono, monospace;",
-                  fontSize: "0.8rem",
+                  fontSize: "0.9rem",
                 }}
               >
                 {page}
@@ -70,65 +66,67 @@ export const Header = () => {
             </Button>
           ))}
           <Button
-            sx={{ color: "#01BAEF", borderColor: "#01BAEF" }}
+            sx={{ color: "#E07A5F", borderColor: "#E07A5F", mx: 1 }}
             size="small"
             variant="outlined"
           >
             Resume
           </Button>
         </Box>
-        {/* <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
+        <Typography
+          component="a"
+          href="/"
+          sx={{
+            display: { xs: "flex", md: "none" },
+            color: "#01BAEF",
+            textDecoration: "none",
+            fontSize: "1.3rem",
+            fontFamily: "Yomogi, cursive",
+          }}
+        >
+          Hernán
+        </Typography>
+        <Box sx={{ display: { xs: "inline-block", md: "none" } }}>
+          <IconButton
+            size="large"
+            aria-label="menu options"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleOpenNavMenu}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Menu
+            id="menu-appbar"
+            anchorEl={anchorElNav}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "left",
+            }}
+            open={Boolean(anchorElNav)}
+            onClose={handleCloseNavMenu}
             sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              textDecoration: "none",
+              display: { xs: "block", md: "none" },
             }}
           >
-            LOGO
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box> */}
+            {pages.map((page) => (
+              <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <Typography
+                  component="a"
+                  href={`/#${page}`}
+                  sx={{
+                    fontFamily: "Cutive Mono, monospace;",
+                    fontSize: "0.9rem",
+                    textDecoration: "none",
+                    color: "#011627",
+                  }}
+                >
+                  {page}
+                </Typography>
+              </MenuItem>
+            ))}
+          </Menu>
+        </Box>
       </Toolbar>
     </AppBar>
   );
