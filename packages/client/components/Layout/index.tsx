@@ -1,15 +1,12 @@
+import { Container } from "@mui/material";
+import React from "react";
 import { Header } from "../Header";
-import { Footer } from "../Footer";
-import { Error } from "../Error";
-import React from "react"
 
 export const Layout = ({ children }) => {
   return (
-    <React.Fragment>
+    <Container sx={{ bgcolor: "#FAF9F9"}} maxWidth={false}>
       <Header />
-      <Error />
       {children}
-      <Footer />
-    </React.Fragment>
+    </Container>
   );
 };

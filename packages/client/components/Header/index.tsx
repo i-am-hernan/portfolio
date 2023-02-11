@@ -7,7 +7,7 @@ import {
   Menu,
   MenuItem,
   Toolbar,
-  Typography,
+  Typography
 } from "@mui/material";
 import { useState } from "react";
 
@@ -24,7 +24,7 @@ export const Header = () => {
   };
 
   return (
-    <AppBar>
+    <AppBar sx={{ boxShadow: "0" }}>
       <Toolbar
         disableGutters
         sx={{
