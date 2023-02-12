@@ -1,4 +1,6 @@
-import { Button, Container, Typography } from "@mui/material";
+import { Button, Container, Typography, Box } from "@mui/material";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const Intro: any = () => {
   return (
@@ -19,6 +21,46 @@ const Intro: any = () => {
         px: "20%",
       }}
     >
+      <Box
+        sx={{
+          bgcolor: "#FAF9F9",
+          py: 0,
+          position: "fixed",
+          right: 0,
+          bottom: "15%",
+          px: 2,
+          color: "#E07A5F",
+          display: "flex",
+          flexDirection: "column",
+          fontSize: "2rem",
+          alignItems: "center",
+        }}
+        direction="column"
+      >
+        <Typography
+          sx={{
+            writingMode: "vertical-lr",
+            fontFamily: "Cutive Mono, monospace;",
+            fontSize: "1rem",
+            textDecoration: "none",
+            py: 2,
+          }}
+        >
+          hschalco@gmail.com
+        </Typography>
+        <GitHubIcon sx={{ pb: 1, fontSize: "2rem" }} />
+        <LinkedInIcon sx={{ pb: 1, fontSize: "2rem" }} />
+        <Container>
+          <Box
+            sx={{
+              border: 1,
+              height: "100px",
+              width: "1px",
+              bgcolor: "#E07A5F",
+            }}
+          ></Box>
+        </Container>
+      </Box>
       <Typography
         variant="h3"
         sx={{
@@ -59,9 +101,9 @@ const Intro: any = () => {
           py: 1,
         }}
       >
-        I am a software engineer and technical consultant. Eager to bridge the
-        gap between business requirements and implementation. I like to learn
-        and turnout robust code for tech companies.
+        I am a software engineer and technical consultant. I am eager to bridge
+        the gap between business requirements and implementation. I like to
+        learn and turnout robust code for tech companies.
       </Typography>
       <Button
         sx={{ color: "#E07A5F", borderColor: "#E07A5F", mt: 3, px: 2 }}

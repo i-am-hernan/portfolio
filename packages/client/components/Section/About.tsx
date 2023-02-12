@@ -74,6 +74,22 @@ const About: any = () => {
                   .start();
               }}
             />
+            <Typography
+              sx={{
+                color: "white",
+                fontFamily: "Poppins,sans-serif;",
+                fontSize: "1rem",
+                fontWeight: "light",
+                textDecoration: "none",
+                pt: 3,
+              }}
+            >
+              I'm Hernán. I'm a passionate developer who has developed healthy
+              strategies by which to redirect his obsessive and compulsive
+              behaviors towards being more productive. I enjoy soccer,
+              yo-yo-ing, lots of keto ice cream (thus not keto), and leveling-up
+              just a little bit more each day.
+            </Typography>
           </Box>
         </Grid>
       </Grid>
