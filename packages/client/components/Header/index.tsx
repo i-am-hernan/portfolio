@@ -6,16 +6,15 @@ import {
   IconButton,
   Menu,
   MenuItem,
+  Paper,
   Toolbar,
   Typography,
-  CardMedia,
-  Paper,
 } from "@mui/material";
 import { useState } from "react";
 
 const pages = ["about", "experience", "work", "contact"];
 
-export const Header = () => {
+export const Header = ({ viewPortPage }: any) => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -24,7 +23,23 @@ export const Header = () => {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
+  let navStyle = null;
+  let logoStyle = null;
+  let textStyle = null;
+  if (viewPortPage) {
+    navStyle = {
+      bgcolor: "#FAF9F9",
+      transition: "background-color 1s",
+    };
+    logoStyle = {
+      borderColor: "#01BAEF",
+      transition: "background-color 1s",
+    };
+    textStyle = {
+      color: "#011627",
+      transition: "background-color 1s",
+    };
+  }
   return (
     <AppBar sx={{ boxShadow: "0" }}>
       <Toolbar
@@ -33,17 +48,24 @@ export const Header = () => {
           justifyContent: "space-between",
           display: "flex",
           px: 6,
-          bgcolor: "#FAF9F9",
-          py: 1
+          bgcolor: "#01BAEF",
+          ...navStyle,
         }}
       >
-        <Paper sx={{ border: 2, borderColor: "#01BAEF", borderRadius: 1 }}>
+        <Paper
+          sx={{
+            border: 2,
+            borderColor: "#FAF9F9",
+            borderRadius: 1,
+            ...logoStyle,
+          }}
+        >
           <Box
             sx={{
               display: "flex",
-              justifyContent: "flex-end",
+              justifyContent: "flex-start",
               bgcolor: "#01BAEF",
-              pr: 0.5,
+              pl: 0.5,
               py: "3px",
             }}
           >
@@ -92,8 +114,13 @@ export const Header = () => {
           {pages.map((page) => (
             <Button
               key={page}
-              onClick={handleCloseNavMenu}
-              sx={{ color: "#011627", display: "inline-block", px: 1 }}
+              href={`/#${page}`}
+              sx={{
+                color: "#FAF9F9",
+                display: "inline-block",
+                px: 1,
+                ...textStyle,
+              }}
             >
               <Typography
                 sx={{
@@ -106,9 +133,9 @@ export const Header = () => {
             </Button>
           ))}
           <Button
-            sx={{ color: "#E07A5F", borderColor: "#E07A5F", mx: 1 }}
+            sx={{ color: "#FAF9F9", mx: 1, bgcolor: "#E07A5F" }}
             size="small"
-            variant="outlined"
+            variant="contained"
           >
             Resume
           </Button>
@@ -158,8 +185,6 @@ export const Header = () => {
     </AppBar>
   );
 };
-
-
 
 // rich black: #011627
 // process cyacn: #01BAEF

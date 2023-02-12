@@ -4,12 +4,19 @@ const Intro: any = () => {
   return (
     <Container
       maxWidth={false}
+      disableGutters
       component="section"
       sx={{
         bgcolor: "#FAF9F9",
         height: "100vh",
         py: { xs: "30%", md: "20%" },
-        width: { xs: "100%", md: "80%", lg: "60%" },
+        zIndex: "-1px",
+        top: 0,
+        left: 0,
+        right: 0,
+        position: "fixed",
+        mx: 0,
+        px: "20%",
       }}
     >
       <Typography
