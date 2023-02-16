@@ -1,6 +1,6 @@
 import { Container, Box } from "@mui/system";
 import About from "../components/Section/About";
-import Experience from "../components/Section/Experience";
+import Experience from "../components/Section/Experience/Index";
 import Intro from "../components/Section/Intro";
 
 const Home: any = () => {

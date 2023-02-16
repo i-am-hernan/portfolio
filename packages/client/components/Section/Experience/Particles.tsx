@@ -1,7 +1,6 @@
+import { useCallback, useMemo } from "react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
-import { Container, Typography } from "@mui/material";
-import { useCallback, useMemo } from "react";
 
 const Experience = (props) => {
   const options = useMemo(() => {
@@ -68,25 +67,12 @@ const Experience = (props) => {
 
   // setting an id can be useful for identifying the right particles component, this is useful for multiple instances or reusable components
   return (
-    <Container
-      maxWidth={false}
-      component="section"
-      disableGutters
-      sx={{
-        bgcolor: "#FFFFFF",
-        height: "100vh",
-        position: "relative",
-      }}
-      id="experience"
-    >
-      <Particles
-        id={props.id}
-        init={particlesInit}
-        options={options}
-        height={"500px"}
-      />
-      <Typography>Hello</Typography>
-    </Container>
+    <Particles
+      id={props.id}
+      init={particlesInit}
+      options={options}
+      height={props.height}
+    />
   );
 };
 
