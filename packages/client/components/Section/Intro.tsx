@@ -9,7 +9,7 @@ const Intro: any = () => {
       disableGutters
       component="section"
       sx={{
-        bgcolor: "#FAF9F9",
+        bgcolor: "#FFFFFF",
         height: "100vh",
         py: { xs: "30%", md: "20%" },
         zIndex: "-1px",
@@ -23,11 +23,11 @@ const Intro: any = () => {
     >
       <Box
         sx={{
-          bgcolor: "#FAF9F9",
+          bgcolor: "#FFFFFF",
           py: 0,
           position: "fixed",
           right: 0,
-          bottom: "15%",
+          bottom: "8%",
           px: 2,
           color: "#E07A5F",
           display: "flex",
@@ -78,6 +78,7 @@ const Intro: any = () => {
           textDecoration: "none",
           fontSize: { xs: "3rem", md: "4rem" },
           fontFamily: "Yomogi, cursive",
+          letterSpacing: "-3px",
         }}
       >
         Hernán Chalco.

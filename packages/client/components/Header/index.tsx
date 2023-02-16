@@ -28,7 +28,7 @@ export const Header = ({ viewPortPage }: any) => {
   let textStyle = null;
   if (viewPortPage) {
     navStyle = {
-      bgcolor: "#FAF9F9",
+      bgcolor: "#FFFFFF",
       transition: "background-color 1s",
     };
     logoStyle = {
