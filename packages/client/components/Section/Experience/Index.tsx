@@ -4,6 +4,7 @@ import Particles from "./Particles";
 
 const Experience = (props) => {
   const height = useWindowHeight("500px");
+  console.log("height: ", height);
 
   return (
     <Container
@@ -12,7 +13,7 @@ const Experience = (props) => {
       disableGutters
       sx={{
         bgcolor: "#FFFFFF",
-        height: "100vh",
+        height: "100%",
         position: "relative",
       }}
       id="experience"

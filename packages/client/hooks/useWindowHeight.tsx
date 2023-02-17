@@ -4,7 +4,7 @@ export const useWindowHeight = (defaultHeight: string) => {
   const [height, setHeight] = useState(defaultHeight);
 
   useEffect(() => {
-    window && window.innerHeight && setHeight(window.innerHeight);
+    window && window.innerHeight && setHeight(`${window.innerHeight}px`);
   }, []);
 
   return height;
