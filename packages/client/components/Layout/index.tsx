@@ -26,6 +26,7 @@ export const Layout = ({ children }) => {
     <Container disableGutters maxWidth={false}>
       <Header viewPortPage={secondSection} />
       {children}
+      <Footer />
     </Container>
   );
 };
