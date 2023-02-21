@@ -50,6 +50,17 @@ const Experience = (props) => {
       }}
       id="experience"
     >
+      <Typography
+        sx={{
+          color: "#E07A5F",
+          textDecoration: "none",
+          fontSize: { xs: "1.5rem", md: "2rem" },
+          fontWeight: "light",
+          pb: 2
+        }}
+      >
+        Where I've worked
+      </Typography>
       <Paper
         sx={{
           border: 2,
