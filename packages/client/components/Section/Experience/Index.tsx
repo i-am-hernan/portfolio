@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { useWindowHeight } from "../../../hooks/useWindowHeight";
 import Particles from "./Particles";
+import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
 
 const Experience = (props) => {
   const height = useWindowHeight("1500px");
@@ -98,7 +99,10 @@ const Experience = (props) => {
               borderRadius: "25%",
             }}
           ></Box>
-          <Typography variant="h6" sx={{ color: "black" }}>
+          <Typography
+            variant="h6"
+            sx={{ color: "black", flexGrow: 1, px: "10", textAlign: "center" }}
+          >
             Work --.bash
           </Typography>
         </Box>
@@ -118,7 +122,7 @@ const Experience = (props) => {
             sx={{
               borderRight: 1,
               borderColor: "divider",
-              ".Mui-selected": { color: "#E07A5F" },
+              ".Mui-selected": { color: "#01BAEF" },
               ".MuiTabs-indicator": { bgcolor: "#01BAEF" },
             }}
           >
@@ -132,9 +136,19 @@ const Experience = (props) => {
           <TabPanel value={1} index={1}>
             <Typography
               variant="h5"
-              sx={{ color: "#E07A5F", fontWeight: "light" }}
+              sx={{
+                color: "#E07A5F",
+                fontWeight: "light",
+                display: "inline-block",
+              }}
             >
-              Customer Success Engineer @ Quantum Metric
+              Customer Success Engineer
+            </Typography>
+            <Typography
+              variant="h5"
+              sx={{ color: "#E07A5F", display: "inline-block" }}
+            >
+              @ Quantum Metric
             </Typography>
             <Typography
               variant="h6"
@@ -142,6 +156,64 @@ const Experience = (props) => {
             >
               March 2020 – September 2021
             </Typography>
+            <Box sx={{ display: "flex" }}>
+              <span>
+                <ArrowRightOutlinedIcon />
+              </span>
+              <Typography
+                sx={{
+                  display: "inline-block",
+                  verticalAlign: "top",
+                  color: "#011627",
+                  textDecoration: "none",
+                  fontSize: "0.8rem",
+                  fontWeight: "light",
+                  py: 0.4,
+                }}
+              >
+                Developed custom JavaScript functions to capture data analytics
+                that satisfy complex use cases.
+              </Typography>
+            </Box>
+            <Box sx={{ display: "flex" }}>
+              <span>
+                <ArrowRightOutlinedIcon />
+              </span>
+              <Typography
+                sx={{
+                  display: "inline-block",
+                  verticalAlign: "top",
+                  color: "#011627",
+                  textDecoration: "none",
+                  fontSize: "0.8rem",
+                  fontWeight: "light",
+                  py: 0.4,
+                }}
+              >
+                Drove efforts to integrate Quantum Metric platform with 3rd
+                party platforms such as Qualtrics, Tealium, Dynatrace, and
+                others.
+              </Typography>
+            </Box>
+            <Box sx={{ display: "flex" }}>
+              <span>
+                <ArrowRightOutlinedIcon />
+              </span>
+              <Typography
+                sx={{
+                  display: "inline-block",
+                  verticalAlign: "top",
+                  color: "#011627",
+                  textDecoration: "none",
+                  fontSize: "0.8rem",
+                  fontWeight: "light",
+                  py: 0.4,
+                }}
+              >
+                Expert knowledge of browser developer tools to test scripts and
+                diagnose digital defects.
+              </Typography>
+            </Box>
           </TabPanel>
           <TabPanel value={1} index={2}>
             Item Three
