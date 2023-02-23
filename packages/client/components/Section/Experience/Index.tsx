@@ -14,7 +14,6 @@ import Particles from "./Particles";
 
 const Experience = (props) => {
   const height = useWindowHeight("1500px");
-  console.log("height: ", height);
 
   function TabPanel(props: TabPanelProps) {
     const { children, value, index, ...other } = props;
@@ -27,11 +26,7 @@ const Experience = (props) => {
         aria-labelledby={`vertical-tab-${index}`}
         {...other}
       >
-        {value === index && (
-          <Box sx={{ p: 3 }}>
-            <Typography>{children}</Typography>
-          </Box>
-        )}
+        {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
       </div>
     );
   }
@@ -56,7 +51,7 @@ const Experience = (props) => {
           textDecoration: "none",
           fontSize: { xs: "1.5rem", md: "2rem" },
           fontWeight: "light",
-          pb: 2
+          pb: 2,
         }}
       >
         Where I've worked
@@ -124,7 +119,7 @@ const Experience = (props) => {
               borderRight: 1,
               borderColor: "divider",
               ".Mui-selected": { color: "#E07A5F" },
-              ".MuiTabs-indicator": { bgcolor: "#E07A5F" },
+              ".MuiTabs-indicator": { bgcolor: "#01BAEF" },
             }}
           >
             <Tab label="HCL Technologies" />
@@ -135,7 +130,18 @@ const Experience = (props) => {
             Item One
           </TabPanel>
           <TabPanel value={1} index={1}>
-            Item Two asdfhja sldkjfh asdlfhj asdlfhj dshl
+            <Typography
+              variant="h5"
+              sx={{ color: "#E07A5F", fontWeight: "light" }}
+            >
+              Customer Success Engineer @ Quantum Metric
+            </Typography>
+            <Typography
+              variant="h6"
+              sx={{ color: "#`E07A5F`", fontWeight: "light" }}
+            >
+              March 2020 – September 2021
+            </Typography>
           </TabPanel>
           <TabPanel value={1} index={2}>
             Item Three
