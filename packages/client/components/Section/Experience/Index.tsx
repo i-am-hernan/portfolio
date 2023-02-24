@@ -1,37 +1,45 @@
-import {
-  Container,
-  Typography,
-  Card,
-  CardContent,
-  Grid,
-  Tabs,
-  Tab,
-  Box,
-  Paper,
-} from "@mui/material";
-import { useWindowHeight } from "../../../hooks/useWindowHeight";
-import Particles from "./Particles";
 import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
+import { Box, Container, Tab, Tabs, Typography } from "@mui/material";
+import { useWindowHeight } from "../../../hooks/useWindowHeight";
 import TerminalExperience from "./TerminalContainer";
+import { useState } from "react";
+
+const workExperience = [
+  {
+    company: "Quantum Metric",
+    title: "Customer Success Engineer",
+    dates: "March 2020 – September 2021",
+    activity: [
+      "Developed custom JavaScript functions to capture data analytics that satisfy complex use cases.",
+      "Drove efforts to integrate Quantum Metric platform with 3rd party platforms such as Qualtrics, Tealium, Dynatrace, and others.",
+      "Expert knowledge of browser developer tools to test scripts and diagnose digital defects.",
+    ],
+  },
+];
+
+const TabPanel = (props: TabPanelProps) => {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`vertical-tabpanel-${index}`}
+      aria-labelledby={`vertical-tab-${index}`}
+      {...other}
+    >
+      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+    </div>
+  );
+};
 
 const Experience = (props) => {
   const height = useWindowHeight("1500px");
+  const [value, setValue] = useState(0);
 
-  function TabPanel(props: TabPanelProps) {
-    const { children, value, index, ...other } = props;
-
-    return (
-      <div
-        role="tabpanel"
-        hidden={value !== index}
-        id={`vertical-tabpanel-${index}`}
-        aria-labelledby={`vertical-tab-${index}`}
-        {...other}
-      >
-        {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
-      </div>
-    );
-  }
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
     <Container
@@ -71,22 +79,23 @@ const Experience = (props) => {
           <Tabs
             orientation="vertical"
             variant="scrollable"
-            value={1}
+            value={value}
+            onChange={handleChange}
             sx={{
               borderRight: 1,
               borderColor: "divider",
               ".Mui-selected": { color: "#01BAEF" },
-              ".MuiTabs-indicator": { bgcolor: "#01BAEF" },
+              ".MuiTabs-indicator": { bgcolor: "red" },
             }}
           >
             <Tab label="HCL Technologies" />
             <Tab label="Quantum Metric" />
             <Tab label="Adyen" />
           </Tabs>
-          <TabPanel value={1} index={0}>
+          <TabPanel value={value} index={0}>
             Item One
           </TabPanel>
-          <TabPanel value={1} index={1}>
+          <TabPanel value={value} index={1}>
             <Typography
               variant="h5"
               sx={{
@@ -168,10 +177,10 @@ const Experience = (props) => {
               </Typography>
             </Box>
           </TabPanel>
-          <TabPanel value={1} index={2}>
+          <TabPanel value={value} index={2}>
             Item Three
           </TabPanel>
-          <TabPanel value={1} index={3}>
+          <TabPanel value={value} index={3}>
             Item Four
           </TabPanel>
         </Box>
