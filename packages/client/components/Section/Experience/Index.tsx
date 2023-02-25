@@ -70,7 +70,7 @@ const Experience = (props) => {
         height: "100%",
         position: "relative",
         py: "15%",
-        px: 50,
+        px: "25%",
       }}
       id="experience"
     >
@@ -98,7 +98,7 @@ const Experience = (props) => {
           direction="row"
           justifyContent="flex-start"
           alignItems="stretch"
-          sx={{ height: { xs: "250px" } }}
+          sx={{ minHeight: { xs: "250px" } }}
         >
           <Grid
             item
@@ -118,6 +118,7 @@ const Experience = (props) => {
                 ".MuiTabs-indicator": { bgcolor: "#01BAEF" },
                 ".MuiButtonBase-root.MuiTab-root.Mui-selected": {
                   color: "#01BAEF",
+                  py: 2,
                 },
               }}
             >
@@ -129,7 +130,7 @@ const Experience = (props) => {
                       label={
                         <Typography
                           sx={{
-                            fontSize: { xs: ".7rem" },
+                            fontSize: { xs: ".75rem" },
                             fontWeight: "light",
                             textDecoration: "none",
                           }}
@@ -150,9 +151,10 @@ const Experience = (props) => {
                     <Typography
                       variant="h5"
                       sx={{
-                        color: "#E07A5F",
+                        color: "#FFFFFFF",
                         fontWeight: "light",
                         display: "inline-block",
+                        fontSize: ".9rem",
                       }}
                     >
                       {job?.title}
@@ -165,7 +167,7 @@ const Experience = (props) => {
                     </Typography>
                     <Typography
                       variant="h6"
-                      sx={{ color: "#`E07A5F`", fontWeight: "light" }}
+                      sx={{ color: "#`E07A5F`", fontWeight: "light", pb: 1 }}
                     >
                       {job.dates}
                     </Typography>
