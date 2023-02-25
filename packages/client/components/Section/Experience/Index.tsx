@@ -69,7 +69,7 @@ const Experience = (props) => {
         bgcolor: "#FFFFFF",
         height: "100%",
         position: "relative",
-        py: "15%",
+        pt: "15%",
         px: "25%",
       }}
       id="experience"
@@ -80,7 +80,7 @@ const Experience = (props) => {
           textDecoration: "none",
           fontSize: { xs: "1.5rem", md: "2rem" },
           fontWeight: "light",
-          pb: 2,
+          pb: 3,
         }}
       >
         Where I've worked
@@ -126,6 +126,7 @@ const Experience = (props) => {
                 jobs.map((job, i) => {
                   return (
                     <Tab
+                      index={i}
                       fullWidth={true}
                       label={
                         <Typography
@@ -174,7 +175,7 @@ const Experience = (props) => {
                     {job.tasks?.length > 0 &&
                       job.tasks.map((task, i) => {
                         return (
-                          <Box sx={{ display: "flex" }}>
+                          <Box index={i} sx={{ display: "flex" }}>
                             <span>
                               <ArrowRightOutlinedIcon />
                             </span>
