@@ -4,13 +4,7 @@ const TerminalExperience = (props: any) => {
   const { children, ...other } = props;
 
   return (
-    <Paper
-      sx={{
-        border: 2,
-        color: "#01BAEF",
-        borderRadius: 1,
-      }}
-    >
+    <Paper {...other}>
       <Box
         sx={{
           display: "flex",

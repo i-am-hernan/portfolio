@@ -1,18 +1,37 @@
 import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
-import { Box, Container, Tab, Tabs, Typography } from "@mui/material";
+import { Box, Container, Tab, Tabs, Typography, Grid } from "@mui/material";
 import { useWindowHeight } from "../../../hooks/useWindowHeight";
 import TerminalExperience from "./TerminalContainer";
 import { useState } from "react";
 
-const workExperience = [
+const jobs = [
+  {
+    company: "Adyen",
+    title: "Implementation Engineer",
+    dates: "October 2021 – present",
+    tasks: [
+      "Developed internal applications to assist the Implementation Engineering team and clients configure customized versions of the Adyen solutions.",
+      "Solved and communicated solutions to complex integration problems.",
+      "Served as the chief technical lead for our merchants during their integration with Adyen.",
+    ],
+  },
   {
     company: "Quantum Metric",
     title: "Customer Success Engineer",
     dates: "March 2020 – September 2021",
-    activity: [
+    tasks: [
       "Developed custom JavaScript functions to capture data analytics that satisfy complex use cases.",
       "Drove efforts to integrate Quantum Metric platform with 3rd party platforms such as Qualtrics, Tealium, Dynatrace, and others.",
       "Expert knowledge of browser developer tools to test scripts and diagnose digital defects.",
+    ],
+  },
+  {
+    company: "HCL Technologies",
+    title: "Software Engineer",
+    dates: "October 2018 – March 2020",
+    tasks: [
+      "Led efforts to analyze, debug, and resolve digital defects.",
+      "Developed automated system tests to ensure the health of the site infrastructure.",
     ],
   },
 ];
@@ -51,9 +70,10 @@ const Experience = (props) => {
         height: "100%",
         position: "relative",
         py: "15%",
-        px: 60,
+        px: 50,
       }}
       id="experience"
+
     >
       <Typography
         sx={{
@@ -66,124 +86,94 @@ const Experience = (props) => {
       >
         Where I've worked
       </Typography>
-      <TerminalExperience>
-        <Box
-          component="span"
-          sx={{
-            flexGrow: 1,
-            display: "flex",
-            height: 224,
-            border: 5,
-          }}
+      <TerminalExperience
+        sx={{
+          boxShadow: 20,
+          border: 2,
+          color: "#01BAEF",
+          borderRadius: 1,
+        }}
+      >
+        <Grid
+          container
+          direction="row"
+          justifyContent="flex-start"
+          alignItems="stretch"
+          sx={{ height: { xs: "250px" } }}
         >
-          <Tabs
-            orientation="vertical"
-            variant="scrollable"
-            value={value}
-            onChange={handleChange}
-            sx={{
-              borderRight: 1,
-              borderColor: "divider",
-              ".Mui-selected": { color: "#01BAEF" },
-              ".MuiTabs-indicator": { bgcolor: "red" },
-            }}
-          >
-            <Tab label="HCL Technologies" />
-            <Tab label="Quantum Metric" />
-            <Tab label="Adyen" />
-          </Tabs>
-          <TabPanel value={value} index={0}>
-            Item One
-          </TabPanel>
-          <TabPanel value={value} index={1}>
-            <Typography
-              variant="h5"
+          <Grid item xs={3} sx={{ borderRight: 3, borderColor: "divider" }}>
+            <Tabs
+              indicatorColor="red"
+              orientation="vertical"
+              variant="scrollable"
+              value={value}
+              onChange={handleChange}
               sx={{
-                color: "#E07A5F",
-                fontWeight: "light",
-                display: "inline-block",
+                ".MuiTabs-indicator": { bgcolor: "#01BAEF" },
+                ".MuiButtonBase-root.MuiTab-root.Mui-selected": {
+                  color: "#01BAEF",
+                },
               }}
             >
-              Customer Success Engineer
-            </Typography>
-            <Typography
-              variant="h5"
-              sx={{ color: "#E07A5F", display: "inline-block" }}
-            >
-              @ Quantum Metric
-            </Typography>
-            <Typography
-              variant="h6"
-              sx={{ color: "#`E07A5F`", fontWeight: "light" }}
-            >
-              March 2020 – September 2021
-            </Typography>
-            <Box sx={{ display: "flex" }}>
-              <span>
-                <ArrowRightOutlinedIcon />
-              </span>
-              <Typography
-                sx={{
-                  display: "inline-block",
-                  verticalAlign: "top",
-                  color: "#011627",
-                  textDecoration: "none",
-                  fontSize: "0.8rem",
-                  fontWeight: "light",
-                  py: 0.4,
-                }}
-              >
-                Developed custom JavaScript functions to capture data analytics
-                that satisfy complex use cases.
-              </Typography>
-            </Box>
-            <Box sx={{ display: "flex" }}>
-              <span>
-                <ArrowRightOutlinedIcon />
-              </span>
-              <Typography
-                sx={{
-                  display: "inline-block",
-                  verticalAlign: "top",
-                  color: "#011627",
-                  textDecoration: "none",
-                  fontSize: "0.8rem",
-                  fontWeight: "light",
-                  py: 0.4,
-                }}
-              >
-                Drove efforts to integrate Quantum Metric platform with 3rd
-                party platforms such as Qualtrics, Tealium, Dynatrace, and
-                others.
-              </Typography>
-            </Box>
-            <Box sx={{ display: "flex" }}>
-              <span>
-                <ArrowRightOutlinedIcon />
-              </span>
-              <Typography
-                sx={{
-                  display: "inline-block",
-                  verticalAlign: "top",
-                  color: "#011627",
-                  textDecoration: "none",
-                  fontSize: "0.8rem",
-                  fontWeight: "light",
-                  py: 0.4,
-                }}
-              >
-                Expert knowledge of browser developer tools to test scripts and
-                diagnose digital defects.
-              </Typography>
-            </Box>
-          </TabPanel>
-          <TabPanel value={value} index={2}>
-            Item Three
-          </TabPanel>
-          <TabPanel value={value} index={3}>
-            Item Four
-          </TabPanel>
-        </Box>
+              {jobs?.length > 0 &&
+                jobs.map((job, i) => {
+                  return <Tab fullWidth={true} label={job.company} />;
+                })}
+            </Tabs>
+          </Grid>
+          <Grid item xs={8}>
+            {jobs?.length > 0 &&
+              jobs.map((job, i) => {
+                return (
+                  <TabPanel value={value} index={i}>
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        color: "#E07A5F",
+                        fontWeight: "light",
+                        display: "inline-block",
+                      }}
+                    >
+                      {job?.title}
+                    </Typography>
+                    <Typography
+                      variant="h5"
+                      sx={{ color: "#E07A5F", display: "inline-block" }}
+                    >
+                      {`@ ${job.company}`}
+                    </Typography>
+                    <Typography
+                      variant="h6"
+                      sx={{ color: "#`E07A5F`", fontWeight: "light" }}
+                    >{job.dates}</Typography>
+                    {job.tasks?.length > 0 &&
+                      job.tasks.map((task, i) => {
+                        return (
+                          <Box sx={{ display: "flex" }}>
+                            <span>
+                              <ArrowRightOutlinedIcon />
+                            </span>
+                            <Typography
+                              sx={{
+                                display: "inline-block",
+                                verticalAlign: "top",
+                                color: "#011627",
+                                textDecoration: "none",
+                                fontSize: "0.8rem",
+                                fontWeight: "light",
+                                py: 0.4,
+                              }}
+                            >
+                              {task}
+                            </Typography>
+                          </Box>
+                        );
+                      })}
+                  </TabPanel>
+                );
+              })}
+          </Grid>
+        </Grid>
       </TerminalExperience>
     </Container>
   );
