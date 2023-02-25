@@ -47,7 +47,7 @@ const TabPanel = (props: TabPanelProps) => {
       aria-labelledby={`vertical-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+      {value === index && <Box sx={{ p: 2 }}>{children}</Box>}
     </div>
   );
 };
@@ -73,7 +73,6 @@ const Experience = (props) => {
         px: 50,
       }}
       id="experience"
-
     >
       <Typography
         sx={{
@@ -101,7 +100,14 @@ const Experience = (props) => {
           alignItems="stretch"
           sx={{ height: { xs: "250px" } }}
         >
-          <Grid item xs={3} sx={{ borderRight: 3, borderColor: "divider" }}>
+          <Grid
+            item
+            xs={3}
+            sx={{
+              borderRight: 3,
+              borderColor: "divider",
+            }}
+          >
             <Tabs
               indicatorColor="red"
               orientation="vertical"
@@ -117,7 +123,22 @@ const Experience = (props) => {
             >
               {jobs?.length > 0 &&
                 jobs.map((job, i) => {
-                  return <Tab fullWidth={true} label={job.company} />;
+                  return (
+                    <Tab
+                      fullWidth={true}
+                      label={
+                        <Typography
+                          sx={{
+                            fontSize: { xs: ".7rem" },
+                            fontWeight: "light",
+                            textDecoration: "none",
+                          }}
+                        >
+                          {job?.title}
+                        </Typography>
+                      }
+                    />
+                  );
                 })}
             </Tabs>
           </Grid>
@@ -145,7 +166,9 @@ const Experience = (props) => {
                     <Typography
                       variant="h6"
                       sx={{ color: "#`E07A5F`", fontWeight: "light" }}
-                    >{job.dates}</Typography>
+                    >
+                      {job.dates}
+                    </Typography>
                     {job.tasks?.length > 0 &&
                       job.tasks.map((task, i) => {
                         return (
