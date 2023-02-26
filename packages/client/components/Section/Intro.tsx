@@ -3,6 +3,10 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const Intro: any = () => {
+  const handleChange = (e) => {
+    e.preventDefault();
+    window.open("mailto:hschalco@gmail.com?subject=Hello!");
+  };
   return (
     <Container
       maxWidth={false}
@@ -67,8 +71,19 @@ const Intro: any = () => {
         learn and turnout robust code for tech companies.
       </Typography>
       <Button
-        sx={{ color: "#E07A5F", borderColor: "#E07A5F", mt: 3, px: 2 }}
+        sx={{
+          color: "#E07A5F",
+          borderColor: "#E07A5F",
+          mt: 3,
+          px: 2,
+          ":hover": {
+            backgroundColor: "#E07A5F",
+            color: "#FFFFFF",
+            borderColor: "#E07A5F",
+          },
+        }}
         variant="outlined"
+        onClick={handleChange}
       >
         Say hello!
       </Button>

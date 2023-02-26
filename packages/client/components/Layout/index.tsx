@@ -1,7 +1,7 @@
 import { Container } from "@mui/material";
 import { useEffect, useState } from "react";
-import { Header } from "../Header";
 import { Footer } from "../Footer";
+import { Header } from "../Header";
 
 export const Layout = ({ children }) => {
   const [secondSection, setSecondSection] = useState(false);

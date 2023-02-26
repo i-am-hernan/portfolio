@@ -73,7 +73,7 @@ const ProjectDisplay = (props) => {
               position: "absolute",
               opacity: ".4",
               bgcolor: "#01BAEF",
-              transition: "opacity 0.5s",
+              transition: "opacity 0.2s",
               ":hover": {
                 opacity: "0",
               },

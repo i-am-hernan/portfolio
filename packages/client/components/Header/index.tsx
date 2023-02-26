@@ -40,6 +40,16 @@ export const Header = ({ viewPortPage }: any) => {
       transition: "background-color 1s",
     };
   }
+
+  const handleClick = (e: any) => {
+    e.preventDefault();
+    // open pdf file
+    window.open(
+      "/resume.pdf",
+      "_blank" // <- This is what makes it open in a new window.
+    );
+  };
+
   return (
     <AppBar sx={{ boxShadow: "0" }}>
       <Toolbar
@@ -133,9 +143,23 @@ export const Header = ({ viewPortPage }: any) => {
             </Button>
           ))}
           <Button
-            sx={{ color: "#FAF9F9", mx: 1, bgcolor: "#E07A5F" }}
+            sx={{
+              color: "#FAF9F9",
+              mx: 1,
+              border: 1,
+              bgcolor: "#E07A5F",
+              borderColor: "#E07A5F",
+              ":hover": {
+                borderColor: "#E07A5F",
+                bgcolor: "#FAF9F9",
+                color: "#E07A5F",
+              },
+            }}
             size="small"
             variant="contained"
+            onClick={(e) => {
+              handleClick(e);
+            }}
           >
             Resume
           </Button>
