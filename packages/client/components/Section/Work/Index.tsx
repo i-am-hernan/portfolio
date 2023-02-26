@@ -20,12 +20,12 @@ const Projects = [
     img: "/automate-build.png",
     title: "Automate Build",
     description:
-      "Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vivamus suscipit tortor eget felis porttitor volutpat.",
+      "Scripts to automate the build processes for many common stacks. Including an build optimized for SEO including Next.js, Typescript, Express, MongoDB.",
     links: {
       github: "/",
       project: "/",
     },
-    keywords: ["React", "Material UI", "Typescript", "Node", "Express"],
+    keywords: ["Bash", "Typescript", "Node", "NPM"],
   },
   {
     img: "/matlab.png",
@@ -60,7 +60,12 @@ const ProjectDisplay = (props) => {
           }}
         >
           <Paper sx={{ boxShadow: 15, position: "absolute" }}>
-            <img src={project.img} width={"100%"} height={"100%"} style={{borderRadius: "1%"}} />
+            <img
+              src={project.img}
+              width={"100%"}
+              height={"100%"}
+              style={{ borderRadius: "1%" }}
+            />
           </Paper>
           <Paper
             sx={{
@@ -107,7 +112,7 @@ const ProjectDisplay = (props) => {
             borderRadius: 1,
           }}
         >
-          <Box sx={{ display: "flex" }}>
+          <Box sx={{ display: "flex", p: 1 }}>
             <span>
               <ArrowRightOutlinedIcon />
             </span>
@@ -117,7 +122,7 @@ const ProjectDisplay = (props) => {
                 verticalAlign: "top",
                 color: "#011627",
                 textDecoration: "none",
-                fontSize: "0.7rem",
+                fontSize: "0.8rem",
                 fontWeight: "light",
                 py: 0.4,
                 display: "inline-block",
@@ -190,7 +195,7 @@ const Work: any = () => {
             pb: 3,
           }}
         >
-          Cool stuff I built
+          Cool stuff I made
         </Typography>
         {Projects?.length > 0 &&
           Projects.map((project, i) => {
