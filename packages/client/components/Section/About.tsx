@@ -9,7 +9,7 @@ const About: any = () => {
       component="section"
       disableGutters
       sx={{
-        bgcolor: "#01BAEF",
+        bgcolor: "primary.main",
         height: "100vh",
         py: 0,
         mt: "100vh",
@@ -35,7 +35,7 @@ const About: any = () => {
           >
             <Typography
               sx={{
-                color: "#011627",
+                color: "secondary.dark",
                 fontFamily: "Cutive Mono, monospace;",
                 fontSize: "2rem",
                 fontWeight: "bolder",

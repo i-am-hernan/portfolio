@@ -13,7 +13,7 @@ const Contact = () => {
       component="section"
       disableGutters
       sx={{
-        bgcolor: "#FFFFFF",
+        bgcolor: "primary.light",
         height: "100%",
         position: "relative",
         pt: "15%",
@@ -26,7 +26,7 @@ const Contact = () => {
           fontFamily: "Cutive Mono, monospace;",
           fontSize: "1.2rem",
           textDecoration: "none",
-          color: "#011627",
+          color: "secondary.dark",
         }}
         align="center"
       >
@@ -34,7 +34,7 @@ const Contact = () => {
       </Typography>
       <Typography
         sx={{
-          color: "#01BAEF",
+          color: "primary.main",
           textDecoration: "none",
           fontSize: { xs: "3rem", md: "3.5rem" },
           fontFamily: "Yomogi, cursive",
@@ -46,7 +46,7 @@ const Contact = () => {
       </Typography>
       <Typography
         sx={{
-          color: "#011627",
+          color: "secondary.dark",
           textDecoration: "none",
           fontSize: "0.9rem",
           fontWeight: "light",
@@ -67,11 +67,11 @@ const Contact = () => {
           size="large"
           variant="outlined"
           sx={{
-            color: "#E07A5F",
-            borderColor: "#E07A5F",
+            color: "secondary.main",
+            borderColor: "secondary.main",
             ":hover": {
-              color: "#01BAEF",
-              borderColor: "#01BAEF",
+              color: "primary.main",
+              borderColor: "primary.main",
             },
           }}
         >
@@ -83,7 +83,7 @@ const Contact = () => {
             fontFamily: "Cutive Mono, monospace;",
             fontSize: ".8rem",
             textDecoration: "none",
-            color: "#011627",
+            color: "secondary.dark",
           }}
         >
           Developed by Hernán Chalco.

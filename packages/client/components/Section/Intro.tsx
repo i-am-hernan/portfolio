@@ -13,7 +13,7 @@ const Intro: any = () => {
       disableGutters
       component="section"
       sx={{
-        bgcolor: "#FFFFFF",
+        bgcolor: "primary.light",
         height: "100vh",
         py: { xs: "30%", md: "20%" },
         zIndex: "3px",
@@ -31,14 +31,14 @@ const Intro: any = () => {
           fontFamily: "Cutive Mono, monospace;",
           fontSize: "1.2rem",
           textDecoration: "none",
-          color: "#011627",
+          color: "secondary.dark",
         }}
       >
         Hi, my name is
       </Typography>
       <Typography
         sx={{
-          color: "#01BAEF",
+          color: "primary.main",
           textDecoration: "none",
           fontSize: { xs: "3rem", md: "4rem" },
           fontFamily: "Yomogi, cursive",
@@ -49,7 +49,7 @@ const Intro: any = () => {
       </Typography>
       <Typography
         sx={{
-          color: "#E07A5F",
+          color: "secondary.main",
           textDecoration: "none",
           fontSize: { xs: "2rem", md: "3rem" },
           fontWeight: "light",
@@ -59,7 +59,7 @@ const Intro: any = () => {
       </Typography>
       <Typography
         sx={{
-          color: "#011627",
+          color: "secondary.dark",
           textDecoration: "none",
           fontSize: "0.9rem",
           fontWeight: "light",
@@ -72,14 +72,14 @@ const Intro: any = () => {
       </Typography>
       <Button
         sx={{
-          color: "#E07A5F",
-          borderColor: "#E07A5F",
+          color: "secondary.main",
+          borderColor: "secondary.main",
           mt: 3,
           px: 2,
           ":hover": {
-            backgroundColor: "#E07A5F",
-            color: "#FFFFFF",
-            borderColor: "#E07A5F",
+            backgroundColor: "secondary.main",
+            color: "primary.light",
+            borderColor: "secondary.main",
           },
         }}
         variant="outlined"

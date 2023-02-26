@@ -1,3 +1,4 @@
+import Icon from "./Icon";
 import { default as MenuIcon } from "@mui/icons-material/Menu";
 import {
   AppBar,
@@ -28,15 +29,15 @@ export const Header = ({ viewPortPage }: any) => {
   let textStyle = null;
   if (viewPortPage) {
     navStyle = {
-      bgcolor: "#FFFFFF",
+      bgcolor: "primary.light",
       transition: "background-color 1s",
     };
     logoStyle = {
-      borderColor: "#01BAEF",
+      borderColor: "primary.main",
       transition: "background-color 1s",
     };
     textStyle = {
-      color: "#011627",
+      color: "primary.dark",
       transition: "background-color 1s",
     };
   }
@@ -58,75 +59,18 @@ export const Header = ({ viewPortPage }: any) => {
           justifyContent: "space-between",
           display: "flex",
           px: 6,
-          bgcolor: "#01BAEF",
+          bgcolor: "primary.main",
           ...navStyle,
         }}
       >
-        <Paper
-          sx={{
-            border: 2,
-            borderColor: "#FAF9F9",
-            borderRadius: 1,
-            ...logoStyle,
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "flex-start",
-              bgcolor: "#01BAEF",
-              pl: 0.5,
-              py: "3px",
-            }}
-          >
-            <Box
-              sx={{
-                width: "7px",
-                height: "7px",
-                bgcolor: "#F55050",
-                borderRadius: "25%",
-              }}
-            ></Box>
-            <Box
-              sx={{
-                width: "7px",
-                height: "7px",
-                bgcolor: "#F2CD5C",
-                ml: "3px",
-                borderRadius: "25%",
-              }}
-            ></Box>
-            <Box
-              sx={{
-                width: "7px",
-                height: "7px",
-                bgcolor: "#379237",
-                ml: "3px",
-                borderRadius: "25%",
-              }}
-            ></Box>
-          </Box>
-          <Typography
-            component="a"
-            href="/"
-            sx={{
-              display: { xs: "inline-block" },
-              color: "#E07A5F",
-              textDecoration: "none",
-              fontSize: "1rem",
-              p: 0.5,
-            }}
-          >
-            {`<Hernán/>`}
-          </Typography>
-        </Paper>
+        <Icon sx={logoStyle} />
         <Box sx={{ display: { xs: "none", md: "inline-block" } }}>
           {pages.map((page) => (
             <Button
               key={page}
               href={`/#${page}`}
               sx={{
-                color: "#FAF9F9",
+                color: "primary.light",
                 display: "inline-block",
                 px: 1,
                 ...textStyle,
@@ -144,15 +88,15 @@ export const Header = ({ viewPortPage }: any) => {
           ))}
           <Button
             sx={{
-              color: "#FAF9F9",
+              color: "primary.light",
               mx: 1,
               border: 1,
-              bgcolor: "#E07A5F",
-              borderColor: "#E07A5F",
+              bgcolor: "secondary.main",
+              borderColor: "secondary.main",
               ":hover": {
-                borderColor: "#E07A5F",
-                bgcolor: "#FAF9F9",
-                color: "#E07A5F",
+                borderColor: "secondary.main",
+                bgcolor: "primary.light",
+                color: "secondary.main",
               },
             }}
             size="small"
@@ -196,7 +140,7 @@ export const Header = ({ viewPortPage }: any) => {
                     fontFamily: "Cutive Mono, monospace;",
                     fontSize: "0.9rem",
                     textDecoration: "none",
-                    color: "#011627",
+                    color: "secondary.dark",
                   }}
                 >
                   {page}
@@ -209,9 +153,3 @@ export const Header = ({ viewPortPage }: any) => {
     </AppBar>
   );
 };
-
-// rich black: #011627
-// process cyacn: #01BAEF
-// seasalt: #FAF9F9
-// sienna: #E07A5F
-// yellow-green: #8FC93A

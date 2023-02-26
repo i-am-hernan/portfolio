@@ -66,7 +66,7 @@ const Experience = (props) => {
       component="section"
       disableGutters
       sx={{
-        bgcolor: "#FFFFFF",
+        bgcolor: "primary.light",
         height: "100%",
         position: "relative",
         pt: "15%",
@@ -76,7 +76,7 @@ const Experience = (props) => {
     >
       <Typography
         sx={{
-          color: "#E07A5F",
+          color: "secondary.main",
           textDecoration: "none",
           fontSize: { xs: "1.5rem", md: "2rem" },
           fontWeight: "light",
@@ -89,7 +89,7 @@ const Experience = (props) => {
         sx={{
           boxShadow: 20,
           border: 2,
-          color: "#01BAEF",
+          color: "primary.main",
           borderRadius: 1,
         }}
       >
@@ -115,9 +115,9 @@ const Experience = (props) => {
               value={value}
               onChange={handleChange}
               sx={{
-                ".MuiTabs-indicator": { bgcolor: "#01BAEF" },
+                ".MuiTabs-indicator": { bgcolor: "primary.main" },
                 ".MuiButtonBase-root.MuiTab-root.Mui-selected": {
-                  color: "#01BAEF",
+                  color: "primary.main",
                   py: 2,
                 },
               }}
@@ -152,7 +152,7 @@ const Experience = (props) => {
                     <Typography
                       variant="h5"
                       sx={{
-                        color: "#FFFFFFF",
+                        color: "secondary.dark",
                         fontWeight: "light",
                         display: "inline-block",
                         fontSize: ".9rem",
@@ -162,13 +162,13 @@ const Experience = (props) => {
                     </Typography>
                     <Typography
                       variant="h5"
-                      sx={{ color: "#E07A5F", display: "inline-block" }}
+                      sx={{ color: "secondary.main", display: "inline-block" }}
                     >
                       {`@ ${job.company}`}
                     </Typography>
                     <Typography
                       variant="h6"
-                      sx={{ color: "#`E07A5F`", fontWeight: "light", pb: 1 }}
+                      sx={{ color: "primary.main", fontWeight: "light", pb: 1 }}
                     >
                       {job.dates}
                     </Typography>
@@ -183,7 +183,7 @@ const Experience = (props) => {
                               sx={{
                                 display: "inline-block",
                                 verticalAlign: "top",
-                                color: "#011627",
+                                color: "secondary.dark",
                                 textDecoration: "none",
                                 fontSize: "0.8rem",
                                 fontWeight: "light",

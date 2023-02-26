@@ -16,7 +16,7 @@ export const Footer = () => {
         right: 0,
         bottom: 0,
         px: 2,
-        color: "#E07A5F",
+        color: "secondary.main",
         display: "flex",
         flexDirection: "column",
         fontSize: "2rem",
@@ -35,7 +35,7 @@ export const Footer = () => {
           py: 2,
           fontWeight: "bold",
           ":hover": {
-            color: "#01BAEF",
+            color: "primary.main",
           },
         }}
         onClick={handleChange}
@@ -45,9 +45,9 @@ export const Footer = () => {
       <Link
         href="https://github.com/objStevo"
         sx={{
-          color: "#E07A5F",
+          color: "secondary.main",
           ":hover": {
-            color: "#01BAEF",
+            color: "primary.main",
           },
         }}
       >
@@ -56,9 +56,9 @@ export const Footer = () => {
       <Link
         href="https://linkedin.com/in/hernanchalco"
         sx={{
-          color: "#E07A5F",
+          color: "secondary.main",
           ":hover": {
-            color: "#01BAEF",
+            color: "primary.main",
           },
         }}
       >
@@ -70,7 +70,7 @@ export const Footer = () => {
             border: 1,
             height: "100px",
             width: "1px",
-            bgcolor: "#E07A5F",
+            bgcolor: "secondary.main",
           }}
         ></Box>
       </Container>

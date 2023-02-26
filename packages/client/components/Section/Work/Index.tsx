@@ -72,7 +72,7 @@ const ProjectDisplay = (props) => {
               boxShadow: 15,
               position: "absolute",
               opacity: ".4",
-              bgcolor: "#01BAEF",
+              bgcolor: "primary.main",
               transition: "opacity 0.2s",
               ":hover": {
                 opacity: "0",
@@ -94,7 +94,7 @@ const ProjectDisplay = (props) => {
             textAlign: `${orientation === "right" ? "left" : "right"}`,
             fontFamily: "Cutive Mono, monospace;",
             textDecoration: "none",
-            color: "#011627",
+            color: "secondary.dark",
             fontSize: { xs: "1rem", md: "1.3rem" },
             fontWeight: "light",
             pb: 2,
@@ -108,7 +108,7 @@ const ProjectDisplay = (props) => {
             ml: `${orientation === "right" ? "0" : "-90px"}`,
             boxShadow: 20,
             border: 2,
-            color: "#01BAEF",
+            color: "primary.main",
             borderRadius: 1,
           }}
         >
@@ -120,7 +120,7 @@ const ProjectDisplay = (props) => {
               sx={{
                 display: "inline-block",
                 verticalAlign: "top",
-                color: "#011627",
+                color: "secondary.dark",
                 textDecoration: "none",
                 fontSize: "0.8rem",
                 fontWeight: "light",
@@ -142,7 +142,7 @@ const ProjectDisplay = (props) => {
                   index={i}
                   sx={{
                     textDecoration: "none",
-                    color: "#011627",
+                    color: "secondary.dark",
                     fontSize: { xs: ".6rem", md: ".7rem" },
                     fontWeight: "light",
                     pt: 1,
@@ -158,7 +158,7 @@ const ProjectDisplay = (props) => {
         {/* <Box sx={{ textAlign: "right" }}>
           <Link
             component={
-              <GitHubIcon sx={{ fontSize: "1.1rem", color: "#01BAEF" }} />
+              <GitHubIcon sx={{ fontSize: "1.1rem", color: "primary.main" }} />
             }
             onClick={() => {
               console.info("I'm a button.");
@@ -177,7 +177,7 @@ const Work: any = () => {
       component="section"
       disableGutters
       sx={{
-        bgcolor: "#FFFFFF",
+        bgcolor: "primary.light",
         height: "100%",
         position: "relative",
         pt: "15%",
@@ -188,7 +188,7 @@ const Work: any = () => {
       <Box>
         <Typography
           sx={{
-            color: "#E07A5F",
+            color: "secondary.main",
             textDecoration: "none",
             fontSize: { xs: "1.5rem", md: "2rem" },
             fontWeight: "light",
