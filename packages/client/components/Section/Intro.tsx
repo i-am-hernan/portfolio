@@ -9,7 +9,7 @@ const Intro: any = () => {
       disableGutters
       component="section"
       sx={{
-        bgcolor: "#FAF9F9",
+        bgcolor: "#FFFFFF",
         height: "100vh",
         py: { xs: "30%", md: "20%" },
         zIndex: "3px",

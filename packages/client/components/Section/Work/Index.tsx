@@ -20,7 +20,7 @@ const Projects = [
     img: "/automate-build.png",
     title: "Automate Build",
     description:
-      "Scripts to automate the build processes for many common stacks. Including an build optimized for SEO including Next.js, Typescript, Express, MongoDB.",
+      "Scripts to automate the build processes for many common stacks. Including an build optimized for SEO featuring Next.js, Typescript, Express, MongoDB.",
     links: {
       github: "/",
       project: "/",
@@ -48,7 +48,7 @@ const ProjectDisplay = (props) => {
     <Grid
       container
       direction={orientation === "right" ? "row-reverse" : "row"}
-      justifyContent="flex-end"
+      justifyContent={orientation === "right" ? "flex-end" : "flex-start"}
       {...other}
     >
       <Grid item xs={7}>
@@ -62,8 +62,8 @@ const ProjectDisplay = (props) => {
           <Paper sx={{ boxShadow: 15, position: "absolute" }}>
             <img
               src={project.img}
-              width={"100%"}
-              height={"100%"}
+              width={"670px"}
+              height={"410px"}
               style={{ borderRadius: "1%" }}
             />
           </Paper>
@@ -81,8 +81,8 @@ const ProjectDisplay = (props) => {
           >
             <img
               src={project.img}
-              width={"100%"}
-              height={"100%"}
+              width={"670px"}
+              height={"410px"}
               style={{ visibility: "hidden" }}
             />
           </Paper>
@@ -105,7 +105,7 @@ const ProjectDisplay = (props) => {
         <TerminalContainer
           sx={{
             mr: `${orientation === "right" ? "-70px" : "0"}`,
-            ml: `${orientation === "right" ? "0" : "-70px"}`,
+            ml: `${orientation === "right" ? "0" : "-90px"}`,
             boxShadow: 20,
             border: 2,
             color: "#01BAEF",
@@ -180,7 +180,7 @@ const Work: any = () => {
         bgcolor: "#FFFFFF",
         height: "100%",
         position: "relative",
-        pt: "12%",
+        pt: "15%",
         px: "15%",
       }}
       id="work"
@@ -204,7 +204,7 @@ const Work: any = () => {
                 project={project}
                 orientation={(i + 1) % 2 === 0 ? "right" : "left"}
                 index={i}
-                sx={{ pb: 7 }}
+                sx={{ pb: 12 }}
               />
             );
           })}
