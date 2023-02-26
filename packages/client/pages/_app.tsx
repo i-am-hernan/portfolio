@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { Layout } from "../components/Layout";
 import { darkTheme, lightTheme } from "../components/theme";
 import { store } from "../store";
-const theme = createTheme(lightTheme);
+const theme = createTheme(darkTheme);
 
 const App = ({ Component, pageProps }) => {
   return (

@@ -16,7 +16,7 @@ const Contact = () => {
         bgcolor: "primary.light",
         height: "100%",
         position: "relative",
-        pt: "15%",
+        pt: "12%",
         px: "15%",
       }}
       id="contact"

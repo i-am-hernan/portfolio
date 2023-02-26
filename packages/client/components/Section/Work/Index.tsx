@@ -11,7 +11,7 @@ const Projects = [
     description:
       "An open source application that educates and enables developers to configure customized versions of the Adyen solutions.",
     links: {
-      github: "/",
+      github: "https://github.com/ossiggy/adyen-web-demo",
       project: "/",
     },
     keywords: ["React", "Material UI", "Typescript", "Node", "Express"],
@@ -22,7 +22,7 @@ const Projects = [
     description:
       "Scripts to automate the build processes for many common stacks. Including an build optimized for SEO featuring Next.js, Typescript, Express, MongoDB.",
     links: {
-      github: "/",
+      github: "https://github.com/objStevo/build-automation",
       project: "/",
     },
     keywords: ["Bash", "Typescript", "Node", "NPM"],
@@ -33,7 +33,7 @@ const Projects = [
     description:
       "One of my early introductions into development was by solving Matlab problems for my Applied Mathematics projects. Here is repo of some fun applied math implmentations.",
     links: {
-      github: "/",
+      github: "https://github.com/objStevo/Applied-Mathematics",
       project: "/",
     },
     keywords: ["Matlab", "Linear Algebra"],
@@ -146,7 +146,8 @@ const ProjectDisplay = (props) => {
                     fontSize: { xs: ".6rem", md: ".7rem" },
                     fontWeight: "light",
                     pt: 1,
-                    pl: 2,
+                    pl: `${orientation === "right" ? "0" : "1rem"}`,
+                    pr: `${orientation === "right" ? "1rem" : "0"}`,
                     display: "inline-block",
                   }}
                 >
@@ -155,16 +156,19 @@ const ProjectDisplay = (props) => {
               );
             })}
         </Box>
-        {/* <Box sx={{ textAlign: "right" }}>
+        <Box sx={{ textAlign: orientation === "left" ? "right" : "left" }}>
           <Link
-            component={
-              <GitHubIcon sx={{ fontSize: "1.1rem", color: "primary.main" }} />
-            }
-            onClick={() => {
-              console.info("I'm a button.");
+            href={project.links.github}
+            sx={{
+              color: "secondary.main",
+              ":hover": {
+                color: "primary.main",
+              },
             }}
-          ></Link>
-        </Box> */}
+          >
+            <GitHubIcon sx={{ pt: 1, fontSize: "1.2rem" }} />
+          </Link>
+        </Box>
       </Grid>
     </Grid>
   );

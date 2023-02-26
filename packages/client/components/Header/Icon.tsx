@@ -6,7 +6,7 @@ const Icon = (props) => {
     <Paper
       sx={{
         border: 2,
-        borderColor: "primary.light",
+        borderColor: "secondary.light",
         borderRadius: 1,
         ...sx,
       }}
