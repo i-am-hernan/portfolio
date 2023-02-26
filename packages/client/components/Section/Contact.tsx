@@ -46,7 +46,7 @@ const Contact = () => {
       </Typography>
       <Typography
         sx={{
-          color: "secondary.dark",
+          color: "primary.dark",
           textDecoration: "none",
           fontSize: "0.9rem",
           fontWeight: "light",
@@ -83,7 +83,7 @@ const Contact = () => {
             fontFamily: "Cutive Mono, monospace;",
             fontSize: ".8rem",
             textDecoration: "none",
-            color: "secondary.dark",
+            color: "primary.dark",
           }}
         >
           Developed by Hernán Chalco.

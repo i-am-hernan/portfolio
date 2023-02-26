@@ -162,7 +162,7 @@ const Experience = (props) => {
                     </Typography>
                     <Typography
                       variant="h5"
-                      sx={{ color: "secondary.main", display: "inline-block" }}
+                      sx={{ color: "info.main", display: "inline-block" }}
                     >
                       {`@ ${job.company}`}
                     </Typography>

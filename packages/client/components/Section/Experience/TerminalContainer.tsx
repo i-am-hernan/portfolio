@@ -9,7 +9,7 @@ const TerminalExperience = (props: any) => {
         sx={{
           display: "flex",
           justifyContent: "flex-start",
-          bgcolor: "#01BAEF",
+          bgcolor: "primary.main",
           pl: 0.5,
           py: "3px",
         }}
@@ -42,7 +42,7 @@ const TerminalExperience = (props: any) => {
         ></Box>
         <Typography
           variant="h6"
-          sx={{ color: "black", flexGrow: 1, px: "10", textAlign: "center" }}
+          sx={{ color: "secondary.grey", flexGrow: 1, px: "10", textAlign: "center" }}
         >
           Work --.bash
         </Typography>

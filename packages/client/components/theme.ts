@@ -1,4 +1,4 @@
-export const themeOptions: any = {
+export const lightTheme: any = {
   palette: {
     type: "light",
     primary: {
@@ -12,14 +12,14 @@ export const themeOptions: any = {
       main: "#E07A5F",
       gray: "#F2F6F9",
       light: "#f3f6f9",
-      dark: "#011627"
+      dark: "#011627",
     },
     background: {
       paper: "#fff",
       default: "#fff",
     },
     info: {
-      main: "#0048b3",
+      main: "#E07A5F",
     },
   },
   typography: {
@@ -92,8 +92,96 @@ export const themeOptions: any = {
   },
 };
 
-// rich black: #011627
-// process cyacn: #01BAEF
-// seasalt: #FAF9F9
-// sienna: #E07A5F
-// yellow-green: #8FC93A
+export const darkTheme: any = {
+  palette: {
+    type: "dark",
+    primary: {
+      main: "#E07A5F",
+      gray: "#bdbdbd",
+      border: "#d2dae1",
+      light: "#00112C",
+      dark: "#f3f6f9",
+    },
+    secondary: {
+      main: "#FFFFFF",
+      gray: "#F2F6F9",
+      light: "#f3f6f9",
+      dark: "#011627",
+    },
+    background: {
+      paper: "#fff",
+      default: "#fff",
+    },
+    info: {
+      main: "#00112C",
+    },
+  },
+  typography: {
+    fontFamily: "Poppins, sans-serif",
+    body2: {
+      fontFamily: "Poppins, sans-serif",
+      fontSize: "0.9rem",
+      fontWeight: 400,
+      lineHeight: 1.8,
+    },
+    h2: {
+      fontWeight: 600,
+      fontSize: "2.4rem",
+      fontFamily: "Poppins, sans-serif",
+    },
+    h3: {
+      fontWeight: 600,
+      fontSize: "1.4rem",
+      fontFamily: "Poppins, sans-serif",
+    },
+    h4: {
+      fontWeight: 600,
+      fontSize: "1.1rem",
+      fontFamily: "Poppins, sans-serif",
+      color: "#00112c",
+    },
+    h5: {
+      fontWeight: 600,
+      fontSize: "1rem",
+      fontFamily: "Poppins, sans-serif",
+      color: "#00112c",
+    },
+    h6: {
+      fontWeight: 500,
+      fontSize: "0.83rem",
+      fontFamily: "sans-serif",
+    },
+    caption: {
+      color: "#69778C",
+      fontSize: "0.8rem",
+    },
+    subtitle1: {
+      fontWeight: 500,
+      fontSize: "1.1rem",
+      fontFamily: "Roboto, sans-serif",
+    },
+    subtitle2: {
+      fontWeight: 400,
+      fontSize: ".95rem",
+      fontFamily: "Roboto, sans-serif",
+    },
+  },
+  props: {
+    MuiAppBar: {
+      color: "default",
+    },
+    MuiList: {
+      dense: true,
+    },
+    MuiMenuItem: {
+      dense: true,
+    },
+    MuiTable: {
+      size: "small",
+    },
+  },
+  spacing: 8,
+  shape: {
+    borderRadius: 4,
+  },
+};

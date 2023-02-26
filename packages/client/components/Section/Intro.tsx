@@ -59,7 +59,7 @@ const Intro: any = () => {
       </Typography>
       <Typography
         sx={{
-          color: "secondary.dark",
+          color: "primary.dark",
           textDecoration: "none",
           fontSize: "0.9rem",
           fontWeight: "light",
