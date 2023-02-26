@@ -42,7 +42,6 @@ const Projects = [
 
 const ProjectDisplay = (props) => {
   const { orientation, project, ...other } = props;
-  console.log("props", props);
 
   return (
     <Grid
@@ -139,10 +138,11 @@ const ProjectDisplay = (props) => {
             project.keywords.map((keyword, i) => {
               return (
                 <Typography
+                  key={i}
                   index={i}
                   sx={{
                     textDecoration: "none",
-                    color: "secondary.dark",
+                    color: "secondary.main",
                     fontSize: { xs: ".6rem", md: ".7rem" },
                     fontWeight: "light",
                     pt: 1,
@@ -201,6 +201,7 @@ const Work: any = () => {
           Projects.map((project, i) => {
             return (
               <ProjectDisplay
+                key={i}
                 project={project}
                 orientation={(i + 1) % 2 === 0 ? "right" : "left"}
                 index={i}

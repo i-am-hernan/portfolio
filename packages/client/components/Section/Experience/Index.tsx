@@ -126,6 +126,7 @@ const Experience = (props) => {
                 jobs.map((job, i) => {
                   return (
                     <Tab
+                      key={i}
                       index={i}
                       fullWidth={true}
                       label={
@@ -148,7 +149,7 @@ const Experience = (props) => {
             {jobs?.length > 0 &&
               jobs.map((job, i) => {
                 return (
-                  <TabPanel value={value} index={i}>
+                  <TabPanel value={value} index={i} key={i}>
                     <Typography
                       variant="h5"
                       sx={{
@@ -175,7 +176,7 @@ const Experience = (props) => {
                     {job.tasks?.length > 0 &&
                       job.tasks.map((task, i) => {
                         return (
-                          <Box index={i} sx={{ display: "flex" }}>
+                          <Box key={i} index={i} sx={{ display: "flex" }}>
                             <span>
                               <ArrowRightOutlinedIcon />
                             </span>

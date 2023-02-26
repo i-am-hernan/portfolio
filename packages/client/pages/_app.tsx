@@ -1,9 +1,9 @@
-import { Provider } from "react-redux";
-import { store } from "../store";
 import { createTheme, ThemeProvider } from "@mui/material";
-import { lightTheme, darkTheme } from "../components/theme";
-import { Layout } from "../components/Layout";
 import React from "react";
+import { Provider } from "react-redux";
+import { Layout } from "../components/Layout";
+import { darkTheme, lightTheme } from "../components/theme";
+import { store } from "../store";
 const theme = createTheme(lightTheme);
 
 const App = ({ Component, pageProps }) => {

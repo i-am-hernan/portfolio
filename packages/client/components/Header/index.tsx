@@ -65,7 +65,7 @@ export const Header = ({ viewPortPage }: any) => {
       >
         <Icon sx={logoStyle} />
         <Box sx={{ display: { xs: "none", md: "inline-block" } }}>
-          {pages.map((page) => (
+          {pages.map((page, i) => (
             <Button
               key={page}
               href={`/#${page}`}
