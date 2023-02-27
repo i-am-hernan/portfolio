@@ -1,10 +1,8 @@
-import { createTheme, ThemeProvider } from "@mui/material";
+import { createTheme } from "@mui/material";
 import React from "react";
 import { Provider } from "react-redux";
 import { Layout } from "../components/Layout";
-import { darkTheme, lightTheme } from "../components/theme";
 import { store } from "../store";
-const theme = createTheme(darkTheme);
 
 const App = ({ Component, pageProps }) => {
   return (
@@ -23,11 +21,9 @@ const App = ({ Component, pageProps }) => {
         }}
       />
       <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </ThemeProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </Provider>
     </div>
   );

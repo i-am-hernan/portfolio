@@ -1,8 +1,7 @@
-import { Container, Paper, Typography, Box, Grid, Link } from "@mui/material";
-import TerminalContainer from "../Experience/TerminalContainer";
 import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import { IconButton } from "@mui/material";
+import { Box, Container, Grid, Link, Paper, Typography } from "@mui/material";
+import TerminalContainer from "../Experience/TerminalContainer";
 
 const Projects = [
   {
