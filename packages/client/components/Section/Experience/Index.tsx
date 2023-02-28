@@ -67,6 +67,7 @@ const Experience = (props) => {
       disableGutters
       sx={{
         bgcolor: "primary.light",
+        transition: "background-color 0.5s linear",
         height: "100%",
         position: "relative",
         pt: "15%",

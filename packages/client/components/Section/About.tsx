@@ -10,6 +10,7 @@ const About: any = () => {
       disableGutters
       sx={{
         bgcolor: "primary.main",
+        transition: "background-color 0.5s linear",
         height: "100vh",
         py: 0,
         mt: "100vh",

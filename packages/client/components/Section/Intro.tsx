@@ -14,6 +14,7 @@ const Intro: any = () => {
       component="section"
       sx={{
         bgcolor: "primary.light",
+        transition: "background-color 0.5s linear",
         height: "100vh",
         py: { xs: "30%", md: "20%" },
         zIndex: "3px",

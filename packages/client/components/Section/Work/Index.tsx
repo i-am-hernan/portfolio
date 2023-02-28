@@ -45,51 +45,45 @@ const ProjectDisplay = (props) => {
   return (
     <Grid
       container
-      direction={orientation === "right" ? "row-reverse" : "row"}
-      justifyContent={orientation === "right" ? "flex-end" : "flex-start"}
+      direction={orientation === "left" ? "row-reverse" : "row"}
       {...other}
+      alignItems="center"
     >
       <Grid item xs={7}>
         <Box
           sx={{
-            bgcolor: "yellow",
             position: "relative",
             backgroundImage: `${project.img}`,
           }}
         >
-          <Paper sx={{ boxShadow: 15, position: "absolute" }}>
+          <Paper sx={{ boxShadow: 15 }}>
             <img
               src={project.img}
-              width={"670px"}
-              height={"410px"}
+              width={"100%"}
+              height={"100%"}
               style={{ borderRadius: "1%" }}
             />
           </Paper>
           <Paper
             sx={{
-              boxShadow: 15,
               position: "absolute",
               opacity: ".4",
+              width: "100%",
+              height: "100%",
               bgcolor: "primary.main",
               transition: "opacity 0.2s",
               ":hover": {
                 opacity: "0",
               },
+              top: 0,
             }}
-          >
-            <img
-              src={project.img}
-              width={"670px"}
-              height={"410px"}
-              style={{ visibility: "hidden" }}
-            />
-          </Paper>
+          ></Paper>
         </Box>
       </Grid>
-      <Grid item xs={5} sx={{ position: "relative", my: "10%" }}>
+      <Grid item xs={5} sx={{ position: "relative" }}>
         <Typography
           sx={{
-            textAlign: `${orientation === "right" ? "left" : "right"}`,
+            textAlign: `${orientation === "left" ? "left" : "right"}`,
             fontFamily: "Cutive Mono, monospace;",
             textDecoration: "none",
             color: "secondary.dark",
@@ -100,73 +94,75 @@ const ProjectDisplay = (props) => {
         >
           {project.title}
         </Typography>
-        <TerminalContainer
-          sx={{
-            mr: `${orientation === "right" ? "-70px" : "0"}`,
-            ml: `${orientation === "right" ? "0" : "-90px"}`,
-            boxShadow: 20,
-            border: 2,
-            color: "primary.main",
-            borderRadius: 1,
-          }}
-        >
-          <Box sx={{ display: "flex", p: 1 }}>
-            <span>
-              <ArrowRightOutlinedIcon />
-            </span>
-            <Typography
-              sx={{
-                display: "inline-block",
-                verticalAlign: "top",
-                color: "secondary.dark",
-                textDecoration: "none",
-                fontSize: "0.8rem",
-                fontWeight: "light",
-                py: 0.4,
-                display: "inline-block",
-              }}
-            >
-              {project.description}
-            </Typography>
-          </Box>
-        </TerminalContainer>
-        <Box
-          sx={{ textAlign: `${orientation === "right" ? "left" : "right"}` }}
-        >
-          {project?.keywords?.length > 0 &&
-            project.keywords.map((keyword, i) => {
-              return (
-                <Typography
-                  key={i}
-                  index={i}
-                  sx={{
-                    textDecoration: "none",
-                    color: "secondary.main",
-                    fontSize: { xs: ".6rem", md: ".7rem" },
-                    fontWeight: "light",
-                    pt: 1,
-                    pl: `${orientation === "right" ? "0" : "1rem"}`,
-                    pr: `${orientation === "right" ? "1rem" : "0"}`,
-                    display: "inline-block",
-                  }}
-                >
-                  {keyword}
-                </Typography>
-              );
-            })}
-        </Box>
-        <Box sx={{ textAlign: orientation === "left" ? "right" : "left" }}>
-          <Link
-            href={project.links.github}
+        <Box >
+          <TerminalContainer
             sx={{
-              color: "secondary.main",
-              ":hover": {
-                color: "primary.main",
-              },
+              ml: `${orientation === "right" ? "-70px" : "0"}`,
+              mr: `${orientation === "right" ? "0" : "-70px"}`,
+              boxShadow: 20,
+              border: 2,
+              color: "primary.main",
+              borderRadius: 1,
             }}
           >
-            <GitHubIcon sx={{ pt: 1, fontSize: "1.2rem" }} />
-          </Link>
+            <Box sx={{ display: "flex", p: 1 }}>
+              <span>
+                <ArrowRightOutlinedIcon />
+              </span>
+              <Typography
+                sx={{
+                  display: "inline-block",
+                  verticalAlign: "top",
+                  color: "secondary.dark",
+                  textDecoration: "none",
+                  fontSize: "0.8rem",
+                  fontWeight: "light",
+                  py: 0.4,
+                  display: "inline-block",
+                }}
+              >
+                {project.description}
+              </Typography>
+            </Box>
+          </TerminalContainer>
+          <Box
+            sx={{ textAlign: `${orientation === "left" ? "left" : "right"}` }}
+          >
+            {project?.keywords?.length > 0 &&
+              project.keywords.map((keyword, i) => {
+                return (
+                  <Typography
+                    key={i}
+                    index={i}
+                    sx={{
+                      textDecoration: "none",
+                      color: "secondary.main",
+                      fontSize: { xs: ".6rem", md: ".7rem" },
+                      fontWeight: "light",
+                      pt: 1,
+                      pl: `${orientation === "left" ? "0" : "1rem"}`,
+                      pr: `${orientation === "left" ? "1rem" : "0"}`,
+                      display: "inline-block",
+                    }}
+                  >
+                    {keyword}
+                  </Typography>
+                );
+              })}
+          </Box>
+          <Box sx={{ textAlign: orientation === "right" ? "right" : "left" }}>
+            <Link
+              href={project.links.github}
+              sx={{
+                color: "secondary.main",
+                ":hover": {
+                  color: "primary.main",
+                },
+              }}
+            >
+              <GitHubIcon sx={{ pt: 1, fontSize: "1.2rem" }} />
+            </Link>
+          </Box>
         </Box>
       </Grid>
     </Grid>
@@ -181,6 +177,7 @@ const Work: any = () => {
       disableGutters
       sx={{
         bgcolor: "primary.light",
+        transition: "background-color 0.5s linear",
         height: "100%",
         position: "relative",
         pt: "15%",
