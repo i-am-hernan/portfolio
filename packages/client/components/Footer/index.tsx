@@ -47,7 +47,7 @@ export const Footer = () => {
           cursor: "pointer",
           writingMode: "vertical-lr",
           fontFamily: "Cutive Mono, monospace;",
-          fontSize: "1rem",
+          fontSize: { xs: ".8rem", md: "1rem" },
           textDecoration: "none",
           py: 2,
           fontWeight: "bold",
@@ -68,7 +68,7 @@ export const Footer = () => {
           },
         }}
       >
-        <GitHubIcon sx={{ pb: 1, fontSize: "2rem" }} />
+        <GitHubIcon sx={{ pb: 1, fontSize: { xs: "1rem", md: "2rem" } }} />
       </Link>
       <Link
         href="https://linkedin.com/in/hernanchalco"
@@ -79,7 +79,7 @@ export const Footer = () => {
           },
         }}
       >
-        <LinkedInIcon sx={{ pb: 1, fontSize: "2rem" }} />
+        <LinkedInIcon sx={{ pb: 1, fontSize: { xs: "1rem", md: "2rem" } }} />
       </Link>
       <Box
         onClick={handleThemeChange}
@@ -92,16 +92,20 @@ export const Footer = () => {
         }}
       >
         {theme === "light" ? (
-          <Brightness2Icon sx={{ pb: 1, fontSize: "2rem" }} />
+          <Brightness2Icon
+            sx={{ pb: 1, fontSize: { xs: "1rem", md: "2rem" } }}
+          />
         ) : (
-          <Brightness4Icon sx={{ pb: 1, fontSize: "2rem" }} />
+          <Brightness4Icon
+            sx={{ pb: 1, fontSize: { xs: "1rem", md: "2rem" } }}
+          />
         )}
       </Box>
       <Container>
         <Box
           sx={{
             border: 1,
-            height: "100px",
+            height: { xs: "30px", md: "90px" },
             width: "1px",
             bgcolor: "secondary.main",
           }}
