@@ -58,7 +58,8 @@ export const Header = ({ viewPortPage }: any) => {
         sx={{
           justifyContent: "space-between",
           display: "flex",
-          px: 6,
+          px: { xs: 2, md: 4 },
+          py: 0,
           bgcolor: "primary.main",
           ...navStyle,
         }}

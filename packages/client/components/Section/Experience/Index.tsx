@@ -47,7 +47,7 @@ const TabPanel = (props: TabPanelProps) => {
       aria-labelledby={`vertical-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 2 }}>{children}</Box>}
+      {value === index && <Box sx={{ p: { xs: 1, md: 2 } }}>{children}</Box>}
     </div>
   );
 };
@@ -71,7 +71,7 @@ const Experience = (props) => {
         height: "100%",
         position: "relative",
         pt: "15%",
-        px: "25%",
+        px: { xs: "10%", md: "25%" },
       }}
       id="experience"
     >
@@ -103,7 +103,8 @@ const Experience = (props) => {
         >
           <Grid
             item
-            xs={3}
+            xs={4}
+            md={3}
             sx={{
               borderRight: 3,
               borderColor: "divider",
@@ -128,12 +129,11 @@ const Experience = (props) => {
                   return (
                     <Tab
                       key={i}
-                      index={i}
-                      fullWidth={true}
+                      sx={{ px: 0 }}
                       label={
                         <Typography
                           sx={{
-                            fontSize: { xs: ".75rem" },
+                            fontSize: { xs: "0.7rem", md: "0.8rem" },
                             fontWeight: "light",
                             textDecoration: "none",
                           }}
@@ -187,7 +187,7 @@ const Experience = (props) => {
                                 verticalAlign: "top",
                                 color: "secondary.dark",
                                 textDecoration: "none",
-                                fontSize: "0.8rem",
+                                fontSize: { xs: "0.7rem", md: "0.8rem" },
                                 fontWeight: "light",
                                 py: 0.4,
                               }}

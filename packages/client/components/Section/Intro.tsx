@@ -16,14 +16,14 @@ const Intro: any = () => {
         bgcolor: "primary.light",
         transition: "background-color 0.5s linear",
         height: "100vh",
-        py: { xs: "30%", md: "20%" },
+        py: "25vh",
         zIndex: "3px",
         top: 0,
         left: 0,
         right: 0,
         position: "fixed",
         mx: 0,
-        px: "20%",
+        px: { xs: "10%", md: "20%" },
       }}
     >
       <Typography
@@ -52,7 +52,7 @@ const Intro: any = () => {
         sx={{
           color: "secondary.main",
           textDecoration: "none",
-          fontSize: { xs: "2rem", md: "3rem" },
+          fontSize: { xs: "1.5rem", md: "3rem" },
           fontWeight: "light",
         }}
       >
@@ -62,9 +62,9 @@ const Intro: any = () => {
         sx={{
           color: "primary.dark",
           textDecoration: "none",
-          fontSize: "0.9rem",
+          fontSize: { xs: "0.9rem" },
           fontWeight: "light",
-          py: 1,
+          py: 4,
         }}
       >
         I am a software engineer and technical consultant. I am eager to bridge
@@ -75,7 +75,6 @@ const Intro: any = () => {
         sx={{
           color: "secondary.main",
           borderColor: "secondary.main",
-          mt: 3,
           px: 2,
           ":hover": {
             backgroundColor: "secondary.main",
