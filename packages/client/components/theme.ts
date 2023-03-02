@@ -20,6 +20,7 @@ export const lightTheme: any = {
     },
     info: {
       main: "#E07A5F",
+      secondary: "#01BAEF",
     },
   },
   typography: {
@@ -114,6 +115,7 @@ export const darkTheme: any = {
     },
     info: {
       main: "#00112C",
+      secondary: "#01BAEF",
     },
   },
   typography: {

@@ -32,9 +32,9 @@ export const Footer = () => {
         position: "fixed",
         right: 0,
         bottom: 0,
-        px: 2,
+        px: { xs: 0, md: 2 },
         color: "secondary.main",
-        display: "flex",
+        display: { xs: "none", md: "flex" },
         flexDirection: "column",
         fontSize: "2rem",
         alignItems: "center",
@@ -52,7 +52,7 @@ export const Footer = () => {
           py: 2,
           fontWeight: "bold",
           ":hover": {
-            color: "primary.main",
+            color: "info.secondary",
           },
         }}
         onClick={handleChange}
@@ -64,7 +64,7 @@ export const Footer = () => {
         sx={{
           color: "secondary.main",
           ":hover": {
-            color: "primary.main",
+            color: "info.secondary",
           },
         }}
       >
@@ -75,7 +75,7 @@ export const Footer = () => {
         sx={{
           color: "secondary.main",
           ":hover": {
-            color: "primary.main",
+            color: "info.secondary",
           },
         }}
       >
@@ -87,7 +87,7 @@ export const Footer = () => {
           color: "secondary.main",
           cursor: "pointer",
           ":hover": {
-            color: "primary.main",
+            color: "info.secondary",
           },
         }}
       >

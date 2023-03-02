@@ -3,6 +3,9 @@ import { Box, Container, Tab, Tabs, Typography, Grid } from "@mui/material";
 import { useWindowHeight } from "../../../hooks/useWindowHeight";
 import TerminalExperience from "./TerminalContainer";
 import { useState } from "react";
+import { useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import * as React from "react";
 
 const jobs = [
   {
@@ -47,7 +50,9 @@ const TabPanel = (props: TabPanelProps) => {
       aria-labelledby={`vertical-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: { xs: 1, md: 2 } }}>{children}</Box>}
+      {value === index && (
+        <Box sx={{ px: 2, py: { xs: 1, md: 2 } }}>{children}</Box>
+      )}
     </div>
   );
 };
@@ -55,6 +60,8 @@ const TabPanel = (props: TabPanelProps) => {
 const Experience = (props) => {
   const height = useWindowHeight("1500px");
   const [value, setValue] = useState(0);
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("sm"), { noSsr: true });
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -71,7 +78,7 @@ const Experience = (props) => {
         height: "100%",
         position: "relative",
         pt: "15%",
-        px: { xs: "10%", md: "25%" },
+        px: { xs: "5%", md: "25%" },
       }}
       id="experience"
     >
@@ -96,7 +103,7 @@ const Experience = (props) => {
       >
         <Grid
           container
-          direction="row"
+          direction={matches ? "row" : "column"}
           justifyContent="flex-start"
           alignItems="stretch"
           sx={{ minHeight: { xs: "250px" } }}
@@ -105,14 +112,18 @@ const Experience = (props) => {
             item
             xs={4}
             md={3}
-            sx={{
-              borderRight: 3,
-              borderColor: "divider",
-            }}
+            sx={
+              matches
+                ? {
+                    borderRight: 3,
+                    borderColor: "divider",
+                  }
+                : { borderBottom: 3, borderColor: "divider" }
+            }
           >
             <Tabs
               indicatorColor="red"
-              orientation="vertical"
+              orientation={matches ? "vertical" : "horizontal"}
               variant="scrollable"
               value={value}
               onChange={handleChange}
@@ -129,11 +140,11 @@ const Experience = (props) => {
                   return (
                     <Tab
                       key={i}
-                      sx={{ px: 0 }}
+                      sx={{ px: { xs: 1, md: 0 } }}
                       label={
                         <Typography
                           sx={{
-                            fontSize: { xs: "0.7rem", md: "0.8rem" },
+                            fontSize: { xs: "0.6rem", md: "0.8rem" },
                             fontWeight: "light",
                             textDecoration: "none",
                           }}
@@ -158,15 +169,28 @@ const Experience = (props) => {
                         fontWeight: "light",
                         display: "inline-block",
                         fontSize: ".9rem",
+                        display: { xs: "none", md: "inline-block" },
                       }}
                     >
                       {job?.title}
                     </Typography>
                     <Typography
                       variant="h5"
-                      sx={{ color: "info.main", display: "inline-block" }}
+                      sx={{
+                        color: "info.main",
+                        display: { xs: "none", md: "inline-block" },
+                      }}
                     >
-                      {`@ ${job.company}`}
+                      @
+                    </Typography>
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        color: "info.main",
+                        display: "inline-block",
+                      }}
+                    >
+                      {job?.company}
                     </Typography>
                     <Typography
                       variant="h6"
