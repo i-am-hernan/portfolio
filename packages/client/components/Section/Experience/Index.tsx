@@ -1,11 +1,18 @@
 import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
-import { Box, Container, Tab, Tabs, Typography, Grid } from "@mui/material";
-import { useWindowHeight } from "../../../hooks/useWindowHeight";
-import TerminalExperience from "./TerminalContainer";
-import { useState } from "react";
-import { useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid,
+  Tab,
+  Tabs,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import * as React from "react";
+import { useState } from "react";
+import { useWindowHeight } from "../../../hooks/useWindowHeight";
+import TerminalExperience from "./TerminalContainer";
 
 const jobs = [
   {
@@ -61,7 +68,7 @@ const Experience = (props) => {
   const height = useWindowHeight("1500px");
   const [value, setValue] = useState(0);
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("sm"), { noSsr: true });
+  const matches = useMediaQuery(theme.breakpoints.down("sm"), { noSsr: true });
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -103,7 +110,7 @@ const Experience = (props) => {
       >
         <Grid
           container
-          direction={matches ? "row" : "column"}
+          direction={matches ? "column" : "row"}
           justifyContent="flex-start"
           alignItems="stretch"
           sx={{ minHeight: { xs: "250px" } }}
@@ -114,19 +121,20 @@ const Experience = (props) => {
             md={3}
             sx={
               matches
-                ? {
+                ? { borderBottom: 3, borderColor: "divider" }
+                : {
                     borderRight: 3,
                     borderColor: "divider",
                   }
-                : { borderBottom: 3, borderColor: "divider" }
             }
           >
             <Tabs
               indicatorColor="red"
-              orientation={matches ? "vertical" : "horizontal"}
-              variant="scrollable"
+              orientation={matches ? "horizontal" : "vertical"}
+              variant={matches ? "scrollable" : "standard"}
               value={value}
               onChange={handleChange}
+              centered={!matches}
               sx={{
                 ".MuiTabs-indicator": { bgcolor: "primary.main" },
                 ".MuiButtonBase-root.MuiTab-root.Mui-selected": {
@@ -140,11 +148,11 @@ const Experience = (props) => {
                   return (
                     <Tab
                       key={i}
-                      sx={{ px: { xs: 1, md: 0 } }}
+                      sx={{ px: 0.5 }}
                       label={
                         <Typography
                           sx={{
-                            fontSize: { xs: "0.6rem", md: "0.8rem" },
+                            fontSize: { xs: "0.7rem", md: "0.8rem" },
                             fontWeight: "light",
                             textDecoration: "none",
                           }}
