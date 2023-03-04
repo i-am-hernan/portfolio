@@ -148,7 +148,7 @@ const Experience = (props) => {
                   return (
                     <Tab
                       key={i}
-                      sx={{ px: 0.5 }}
+                      sx={{ mx: "10%" }}
                       label={
                         <Typography
                           sx={{
