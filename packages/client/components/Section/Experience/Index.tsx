@@ -11,7 +11,6 @@ import {
 import { useTheme } from "@mui/material/styles";
 import * as React from "react";
 import { useState } from "react";
-import { useWindowHeight } from "../../../hooks/useWindowHeight";
 import TerminalExperience from "./TerminalContainer";
 
 const jobs = [
@@ -65,7 +64,6 @@ const TabPanel = (props: TabPanelProps) => {
 };
 
 const Experience = (props) => {
-  const height = useWindowHeight("1500px");
   const [value, setValue] = useState(0);
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("sm"), { noSsr: true });
@@ -76,7 +74,6 @@ const Experience = (props) => {
 
   return (
     <Container
-      maxWidth={false}
       component="section"
       disableGutters
       sx={{
@@ -84,8 +81,8 @@ const Experience = (props) => {
         transition: "background-color 0.5s linear",
         height: "100%",
         position: "relative",
-        pt: "15%",
-        px: { xs: "5%", md: "25%" },
+        pt: { xs: "25%", md: "15%" },
+        px: { xs: "9%", md: "14%" },
       }}
       id="experience"
     >
@@ -95,12 +92,13 @@ const Experience = (props) => {
           textDecoration: "none",
           fontSize: { xs: "1.5rem", md: "2rem" },
           fontWeight: "light",
-          pb: 3,
+          pb: 2,
         }}
       >
         Where I've worked
       </Typography>
       <TerminalExperience
+        title={"Work"}
         sx={{
           boxShadow: 20,
           border: 2,
@@ -113,7 +111,7 @@ const Experience = (props) => {
           direction={matches ? "column" : "row"}
           justifyContent="flex-start"
           alignItems="stretch"
-          sx={{ minHeight: { xs: "250px" } }}
+          sx={{ minHeight: { xs: "400px", md: "300px" } }}
         >
           <Grid
             item
@@ -121,10 +119,11 @@ const Experience = (props) => {
             md={3}
             sx={
               matches
-                ? { borderBottom: 3, borderColor: "divider" }
+                ? { borderBottom: 3, borderColor: "divider", maxWidth: "100%!important" }
                 : {
                     borderRight: 3,
                     borderColor: "divider",
+                    maxWidth: "100%!important",
                   }
             }
           >
@@ -148,11 +147,10 @@ const Experience = (props) => {
                   return (
                     <Tab
                       key={i}
-                      sx={{ mx: "10%" }}
                       label={
                         <Typography
                           sx={{
-                            fontSize: { xs: "0.7rem", md: "0.8rem" },
+                            fontSize: { xs: "0.8rem" },
                             fontWeight: "light",
                             textDecoration: "none",
                           }}
@@ -165,7 +163,7 @@ const Experience = (props) => {
                 })}
             </Tabs>
           </Grid>
-          <Grid item xs={8}>
+          <Grid item xs={8} sx={{ maxWidth: "100%!important" }}>
             {jobs?.length > 0 &&
               jobs.map((job, i) => {
                 return (
@@ -214,14 +212,15 @@ const Experience = (props) => {
                               <ArrowRightOutlinedIcon />
                             </span>
                             <Typography
+                              align={"justify"}
                               sx={{
                                 display: "inline-block",
                                 verticalAlign: "top",
                                 color: "secondary.dark",
                                 textDecoration: "none",
-                                fontSize: { xs: "0.7rem", md: "0.8rem" },
+                                fontSize: { xs: "0.8rem" },
                                 fontWeight: "light",
-                                py: 0.4,
+                                py: { xs: 1, md: 0.4 },
                               }}
                             >
                               {task}

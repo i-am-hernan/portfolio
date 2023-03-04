@@ -1,6 +1,15 @@
 import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import { Box, Container, Grid, Link, Paper, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid,
+  Link,
+  Paper,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import TerminalContainer from "../Experience/TerminalContainer";
 
 const Projects = [
@@ -16,7 +25,7 @@ const Projects = [
     keywords: ["React", "Material UI", "Typescript", "Node", "Express"],
   },
   {
-    img: "/automate-build.png",
+    img: "/automate-build-light.png",
     title: "Automate Build",
     description:
       "Scripts to automate the build processes for many common stacks. Including an build optimized for SEO featuring Next.js, Typescript, Express, MongoDB.",
@@ -94,8 +103,9 @@ const ProjectDisplay = (props) => {
         >
           {project.title}
         </Typography>
-        <Box >
+        <Box>
           <TerminalContainer
+            title={project.title}
             sx={{
               ml: `${orientation === "right" ? "-70px" : "0"}`,
               mr: `${orientation === "right" ? "0" : "-70px"}`,
@@ -169,7 +179,120 @@ const ProjectDisplay = (props) => {
   );
 };
 
+const MobileProjectDisplay = (props) => {
+  const { project, ...other } = props;
+
+  return (
+    <Grid container {...other} alignItems="center">
+      <Grid item xs={12}>
+        <Box
+          sx={{
+            position: "relative",
+            backgroundImage: `${project.img}`,
+          }}
+        >
+          <Paper
+            sx={{
+              boxShadow: 15,
+              width: "100%",
+              height: "65vh",
+              borderRadius: "1%",
+              objectFit: "cover",
+            }}
+            component={"img"}
+            src={project.img}
+          ></Paper>
+          <Paper
+            sx={{
+              position: "absolute",
+              opacity: ".90",
+              width: "100%",
+              height: "100%",
+              bgcolor: "primary.main",
+              top: 0,
+            }}
+          >
+            <Box sx={{ px: 3, py: 12 }}>
+              <Typography
+                sx={{
+                  color: "#000000",
+                  textDecoration: "none",
+                  fontSize: { xs: "1rem", md: "1.5rem" },
+                  fontWeight: 600,
+                }}
+              >
+                Featured Project
+              </Typography>
+              <Typography
+                sx={{
+                  color: "background.paper",
+                  textDecoration: "none",
+                  fontSize: { xs: "1.5rem", md: "2rem" },
+                }}
+              >
+                {project.title}
+              </Typography>
+              <Typography
+                align="justify"
+                variant="h5"
+                sx={{
+                  verticalAlign: "top",
+                  color: "background.paper",
+                  textDecoration: "none",
+                  py: 0.6,
+                  display: "inline-block",
+                  fontWeight: 370,
+                }}
+              >
+                {project.description}
+              </Typography>
+              <Box
+                sx={{
+                  textAlign: "left",
+                }}
+              >
+                {project?.keywords?.length > 0 &&
+                  project.keywords.map((keyword, i) => {
+                    return (
+                      <Typography
+                        key={i}
+                        index={i}
+                        sx={{
+                          textDecoration: "none",
+                          color: "background.paper",
+                          fontSize: { xs: ".8rem", md: ".9rem" },
+                          pt: 1,
+                          pr: 1,
+                          display: "inline-block",
+                        }}
+                      >
+                        {keyword}
+                      </Typography>
+                    );
+                  })}
+              </Box>
+              <Box sx={{ textAlign: "left" }}>
+                <Link
+                  href={project.links.github}
+                  sx={{
+                    color: "background.paper",
+                  }}
+                >
+                  <GitHubIcon sx={{ pt: 1, fontSize: "1.2rem" }} />
+                </Link>
+              </Box>
+            </Box>
+          </Paper>
+        </Box>
+      </Grid>
+    </Grid>
+  );
+};
+
 const Work: any = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"), { noSsr: true });
+
   return (
     <Container
       maxWidth={false}
@@ -180,8 +303,8 @@ const Work: any = () => {
         transition: "background-color 0.5s linear",
         height: "100%",
         position: "relative",
-        pt: "15%",
-        px: "15%",
+        pt: { xs: "25%", md: "15%" },
+        px: { xs: "9%", md: "14%" },
       }}
       id="work"
     >
@@ -192,20 +315,28 @@ const Work: any = () => {
             textDecoration: "none",
             fontSize: { xs: "1.5rem", md: "2rem" },
             fontWeight: "light",
-            pb: 3,
+            pb: 2,
           }}
         >
-          Cool stuff I made
+          What I've Built
         </Typography>
         {Projects?.length > 0 &&
           Projects.map((project, i) => {
-            return (
+            return !isMobile ? (
               <ProjectDisplay
                 key={i}
                 project={project}
                 orientation={(i + 1) % 2 === 0 ? "right" : "left"}
                 index={i}
                 sx={{ pb: 12 }}
+              />
+            ) : (
+              <MobileProjectDisplay
+                key={i}
+                project={project}
+                orientation={(i + 1) % 2 === 0 ? "right" : "left"}
+                index={i}
+                sx={{ pb: { xs: 7, md: 20 } }}
               />
             );
           })}

@@ -59,8 +59,9 @@ export const lightTheme: any = {
       fontFamily: "sans-serif",
     },
     caption: {
-      color: "#69778C",
+      color: "primary.light",
       fontSize: "0.8rem",
+      fontWeight: "light",
     },
     subtitle1: {
       fontWeight: 500,
@@ -154,8 +155,9 @@ export const darkTheme: any = {
       fontFamily: "sans-serif",
     },
     caption: {
-      color: "#69778C",
+      color: "primary.light",
       fontSize: "0.8rem",
+      fontFamily: "Poppins, sans-serif",
     },
     subtitle1: {
       fontWeight: 500,

@@ -1,6 +1,4 @@
-import { Button, Container, Typography, Box } from "@mui/material";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { Button, Container, Typography } from "@mui/material";
 
 const Intro: any = () => {
   const handleChange = (e) => {
@@ -15,12 +13,11 @@ const Intro: any = () => {
       sx={{
         bgcolor: "primary.light",
         transition: "background-color 0.5s linear",
-        height: "100vh",
-        py: "25vh",
-        zIndex: "3px",
+        pt: "25vh",
         top: 0,
         left: 0,
         right: 0,
+        height: "100vh",
         position: "fixed",
         mx: 0,
         px: { xs: "10%", md: "20%" },

@@ -1,8 +1,51 @@
-import { Typography, Container, CardMedia, Grid, Box } from "@mui/material";
-import Image from "next/image";
+import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
+import { Box, Container, Grid, Typography } from "@mui/material";
 import Typewriter from "typewriter-effect";
 
 const About: any = () => {
+  const stack = [
+    "Javascript (ES6+)",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "TypeScript",
+    "Heroku",
+    "Material-UI",
+  ];
+
+  const stackFirstHalf = Math.floor(stack.length / 2) + 1;
+  const unorderedListStyle = {
+    pt: "3%",
+    ml: -1,
+    fontSize: "20px",
+  };
+
+  const UnorderedList = (props) => {
+    const { items, variant, ...other } = props;
+
+    return (
+      <Box {...other}>
+        {items.length > 0 &&
+          items.map((item, i) => {
+            return (
+              <Box key={i} index={i} sx={{ display: "flex" }}>
+                <span>
+                  <ArrowRightOutlinedIcon />
+                </span>
+                <Box sx={{ color: "primary.light" }}>
+                  <Typography class={"list-item-stack"} variant={variant}>
+                    {item}
+                  </Typography>
+                </Box>
+              </Box>
+            );
+          })}
+      </Box>
+    );
+  };
+
   return (
     <Container
       maxWidth={false}
@@ -28,6 +71,8 @@ const About: any = () => {
               xs: "none",
               md: "inline-block",
             },
+            width: "100%",
+            height: "100%",
           }}
         >
           <img src="/san-francisco.jpg" width={"100%"} height={"100%"} />
@@ -35,9 +80,9 @@ const About: any = () => {
         <Grid item xs={12} md={6}>
           <Grid
             container
-            alignItems="center"
+            direction="row"
             justifyContent="center"
-            direction="column"
+            alignItems="center"
             sx={{
               ".Typewriter__cursor": {
                 fontSize: "3.5rem",
@@ -47,7 +92,7 @@ const About: any = () => {
               px: 6,
             }}
           >
-            <Grid item xs={5}>
+            <Grid item xs>
               <Typography
                 sx={{
                   color: "secondary.dark",
@@ -93,7 +138,7 @@ const About: any = () => {
                 sx={{
                   color: "white",
                   fontFamily: "Poppins,sans-serif;",
-                  fontSize: {xs: ".9rem", md: "1rem"},
+                  fontSize: { xs: ".9rem", md: "1rem" },
                   fontWeight: "light",
                   textDecoration: "none",
                   pt: 3,
@@ -105,6 +150,22 @@ const About: any = () => {
                 yo-yo-ing, lots of keto ice cream (thus not keto), and
                 leveling-up just a little bit more each day.
               </Typography>
+              <Grid container sx={{ pt: 2 }}>
+                <Grid item xs={6} md={4}>
+                  <UnorderedList
+                    items={stack.slice(0, stackFirstHalf)}
+                    sx={unorderedListStyle}
+                    variant={"caption"}
+                  />
+                </Grid>
+                <Grid item xs={6} md={4}>
+                  <UnorderedList
+                    items={stack.slice(stackFirstHalf, stack.length)}
+                    sx={unorderedListStyle}
+                    variant={"caption"}
+                  />
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>

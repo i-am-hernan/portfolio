@@ -34,7 +34,7 @@ export const Footer = () => {
         bottom: 0,
         px: { xs: 0, md: 2 },
         color: "secondary.main",
-        display: { xs: "none", md: "flex" },
+        display: { xs: "flex" },
         flexDirection: "column",
         fontSize: "2rem",
         alignItems: "center",
@@ -54,6 +54,7 @@ export const Footer = () => {
           ":hover": {
             color: "info.secondary",
           },
+          display: { xs: "none", md: "block" },
         }}
         onClick={handleChange}
       >
@@ -68,7 +69,7 @@ export const Footer = () => {
           },
         }}
       >
-        <GitHubIcon sx={{ pb: 1, fontSize: { xs: "1rem", md: "2rem" } }} />
+        <GitHubIcon sx={{ pb: { xs: 0, md: 1 }, fontSize: "2rem" }} />
       </Link>
       <Link
         href="https://linkedin.com/in/hernanchalco"
@@ -79,7 +80,7 @@ export const Footer = () => {
           },
         }}
       >
-        <LinkedInIcon sx={{ pb: 1, fontSize: { xs: "1rem", md: "2rem" } }} />
+        <LinkedInIcon sx={{ pb: { xs: 0, md: 1 }, fontSize: "2rem" }} />
       </Link>
       <Box
         onClick={handleThemeChange}
@@ -93,11 +94,19 @@ export const Footer = () => {
       >
         {theme === "light" ? (
           <Brightness2Icon
-            sx={{ pb: 1, fontSize: { xs: "1rem", md: "2rem" } }}
+            sx={{
+              pb: { xs: 0, md: 1 },
+              fontSize: "2rem",
+              pb: { xs: 1, md: 0 },
+            }}
           />
         ) : (
           <Brightness4Icon
-            sx={{ pb: 1, fontSize: { xs: "1rem", md: "2rem" } }}
+            sx={{
+              pb: { xs: 0, md: 1 },
+              fontSize: "2rem",
+              pb: { xs: 1, md: 0 },
+            }}
           />
         )}
       </Box>
@@ -108,6 +117,7 @@ export const Footer = () => {
             height: { xs: "30px", md: "90px" },
             width: "1px",
             bgcolor: "secondary.main",
+            display: { xs: "none", md: "block" },
           }}
         ></Box>
       </Container>

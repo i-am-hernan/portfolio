@@ -17,8 +17,8 @@ const Contact = () => {
         transition: "background-color 0.5s linear",
         height: "100%",
         position: "relative",
-        pt: "12%",
-        px: "15%",
+        pt: { xs: "25%", md: "15%" },
+        px: { xs: "5%", sm: "10", md: "14%", lg: "22%" },
       }}
       id="contact"
     >
@@ -52,7 +52,7 @@ const Contact = () => {
           fontSize: "0.9rem",
           fontWeight: "light",
           py: 1,
-          px: "20%",
+          px: { xs: 0, md: "20%" },
         }}
         align="center"
       >
@@ -80,7 +80,7 @@ const Contact = () => {
         </Button>
         <Typography
           sx={{
-            pt: "20%",
+            pt: { xs: "20%", md: "20%"},
             fontFamily: "Cutive Mono, monospace;",
             fontSize: ".8rem",
             textDecoration: "none",
