@@ -105,7 +105,7 @@ export const darkTheme: any = {
       dark: "#f3f6f9",
     },
     secondary: {
-      main: "#FFFFFF",
+      main: "#01BAEF",
       gray: "#F2F6F9",
       light: "#f3f6f9",
       dark: "#011627",

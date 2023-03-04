@@ -10,6 +10,7 @@ import {
   Paper,
   Toolbar,
   Typography,
+  Grow,
 } from "@mui/material";
 import { useState } from "react";
 
@@ -44,7 +45,6 @@ export const Header = ({ viewPortPage }: any) => {
 
   const handleClick = (e: any) => {
     e.preventDefault();
-    // open pdf file
     window.open(
       "/resume.pdf",
       "_blank" // <- This is what makes it open in a new window.
@@ -67,25 +67,27 @@ export const Header = ({ viewPortPage }: any) => {
         <Icon sx={logoStyle} />
         <Box sx={{ display: { xs: "none", md: "inline-block" } }}>
           {pages.map((page, i) => (
-            <Button
-              key={page}
-              href={`/#${page}`}
-              sx={{
-                color: "primary.light",
-                display: "inline-block",
-                px: 1,
-                ...textStyle,
-              }}
-            >
-              <Typography
+            <Grow key={page} appear={true} in={true} timeout={700 + (i*300)}>
+              <Button
+                key={page}
+                href={`/#${page}`}
                 sx={{
-                  fontFamily: "Cutive Mono, monospace;",
-                  fontSize: "0.9rem",
+                  color: "primary.light",
+                  display: "inline-block",
+                  px: 1,
+                  ...textStyle,
                 }}
               >
-                {page}
-              </Typography>
-            </Button>
+                <Typography
+                  sx={{
+                    fontFamily: "Cutive Mono, monospace;",
+                    fontSize: "0.9rem",
+                  }}
+                >
+                  {page}
+                </Typography>
+              </Button>
+            </Grow>
           ))}
           <Button
             sx={{

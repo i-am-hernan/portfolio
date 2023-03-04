@@ -1,15 +1,17 @@
 import { Container } from "@mui/material";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Footer } from "../Footer";
 import { Header } from "../Header";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { useSelector } from "react-redux";
 import { darkTheme, lightTheme } from "../theme";
+import { Box } from "@mui/system";
 
-export const Layout = ({ children }) => {
-  const [secondSection, setSecondSection] = useState(false);
+export const Layout = ({ main: Main }: any) => {
+  const [viewPortPage, setviewPortPage] = useState(0);
   const { theme } = useSelector((state) => state.session);
-  let portfolioTheme = (theme === "dark") ? createTheme(darkTheme) : createTheme(lightTheme);
+  let portfolioTheme =
+    theme === "dark" ? createTheme(darkTheme) : createTheme(lightTheme);
 
   useEffect(() => {
     window.addEventListener("scroll", (e) => {
@@ -21,18 +23,14 @@ export const Layout = ({ children }) => {
     };
   }, []);
   const handleScroll = (e) => {
-    if (window.pageYOffset > window.innerHeight - 65) {
-      setSecondSection(true);
-    } else {
-      setSecondSection(false);
-    }
+    setviewPortPage(Math.floor(window.pageYOffset / (window.innerHeight - 65)));
   };
-
+  // console.log('asdfasdf')
   return (
     <ThemeProvider theme={portfolioTheme}>
       <Container disableGutters maxWidth={false}>
-        <Header viewPortPage={secondSection} />
-        {children}
+        <Header viewPortPage={viewPortPage} />
+        {Main}
         <Footer />
       </Container>
     </ThemeProvider>

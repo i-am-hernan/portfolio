@@ -35,7 +35,7 @@ const About: any = () => {
                   <ArrowRightOutlinedIcon />
                 </span>
                 <Box sx={{ color: "primary.light" }}>
-                  <Typography class={"list-item-stack"} variant={variant}>
+                  <Typography variant={variant}>
                     {item}
                   </Typography>
                 </Box>

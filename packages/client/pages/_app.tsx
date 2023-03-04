@@ -21,9 +21,7 @@ const App = ({ Component, pageProps }) => {
         }}
       />
       <Provider store={store}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <Layout main={<Component {...pageProps} />} />
       </Provider>
     </div>
   );
