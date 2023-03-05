@@ -80,8 +80,8 @@ const Intro: any = () => {
           </Typography>
           <Button
             sx={{
-              color: "secondary.main",
-              borderColor: "secondary.main",
+              color: "primary.main",
+              borderColor: "primary.main",
               px: 2,
               ":hover": {
                 backgroundColor: "secondary.main",

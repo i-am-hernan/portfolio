@@ -9,7 +9,7 @@ export const lightTheme: any = {
       dark: "#00112C",
     },
     secondary: {
-      main: "#E07A5F",
+      main: "#FF8B13",//"previously #E07A5F"
       gray: "#F2F6F9",
       light: "#f3f6f9",
       dark: "#011627",
@@ -19,7 +19,7 @@ export const lightTheme: any = {
       default: "#fff",
     },
     info: {
-      main: "#E07A5F",
+      main: "#FF8B13",
       secondary: "#01BAEF",
     },
   },
@@ -98,7 +98,7 @@ export const darkTheme: any = {
   palette: {
     type: "dark",
     primary: {
-      main: "#E07A5F",
+      main: "#FF8B13",
       gray: "#bdbdbd",
       border: "#d2dae1",
       light: "#00112C",
