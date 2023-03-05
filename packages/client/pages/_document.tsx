@@ -25,8 +25,7 @@ class MyDocument extends Document {
           <meta property="og:title" content="Hernan's Portfolio" />
           <meta property="og:image" content="/logo.png" />
           <meta property="og:description" content="Welcome to my portfolio!" />
-          <meta property="og:url" content="//www.iamhernan.com/" />
-
+          <meta property="og:url" content="www.iamhernan.com/" />
           <link
             rel="apple-touch-icon"
             sizes="180x180"
