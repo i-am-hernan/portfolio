@@ -7,11 +7,13 @@ import {
   Tabs,
   Typography,
   useMediaQuery,
+  Grow,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import * as React from "react";
-import { useState } from "react";
+import { useState, createRef } from "react";
 import TerminalExperience from "./TerminalContainer";
+import { useViewPortPage } from "../../../hooks/useViewPortPage";
 
 const jobs = [
   {
@@ -67,10 +69,14 @@ const Experience = (props) => {
   const [value, setValue] = useState(0);
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("sm"), { noSsr: true });
-
+  const viewPortPage = useViewPortPage(0);
+  const isExperience = viewPortPage > 1;
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const ref = createRef();
+
+  console.log("isExperience", isExperience);
 
   return (
     <Container
@@ -86,154 +92,167 @@ const Experience = (props) => {
       }}
       id="experience"
     >
-      <Typography
-        sx={{
-          color: "secondary.main",
-          textDecoration: "none",
-          fontSize: { xs: "1.5rem", md: "2rem" },
-          fontWeight: "light",
-          pb: 2,
-        }}
-      >
-        Where I've worked
-      </Typography>
-      <TerminalExperience
-        title={"Work"}
-        sx={{
-          boxShadow: 20,
-          border: 2,
-          color: "primary.main",
-          borderRadius: 1,
-        }}
-      >
-        <Grid
-          container
-          direction={matches ? "column" : "row"}
-          justifyContent="flex-start"
-          alignItems="stretch"
-          sx={{ minHeight: { xs: "400px", md: "300px" } }}
+      <Grow in={isExperience} timeout={1000}>
+        <Typography
+          sx={{
+            color: "secondary.main",
+            textDecoration: "none",
+            fontSize: { xs: "1.5rem", md: "2rem" },
+            fontWeight: "light",
+            pb: 2,
+          }}
+        >
+          Where I've worked
+        </Typography>
+      </Grow>
+      <Grow in={isExperience} timeout={1000}>
+        <TerminalExperience
+          title={"Work"}
+          sx={{
+            boxShadow: 20,
+            border: 2,
+            color: "primary.main",
+            borderRadius: 1,
+          }}
+          ref={ref}
         >
           <Grid
-            item
-            xs={4}
-            md={3}
-            sx={
-              matches
-                ? { borderBottom: 3, borderColor: "divider", maxWidth: "100%!important" }
-                : {
-                    borderRight: 3,
-                    borderColor: "divider",
-                    maxWidth: "100%!important",
-                  }
-            }
+            container
+            direction={matches ? "column" : "row"}
+            justifyContent="flex-start"
+            alignItems="stretch"
+            sx={{ minHeight: { xs: "400px", md: "300px" } }}
           >
-            <Tabs
-              indicatorColor="red"
-              orientation={matches ? "horizontal" : "vertical"}
-              variant={matches ? "scrollable" : "standard"}
-              value={value}
-              onChange={handleChange}
-              centered={!matches}
-              sx={{
-                ".MuiTabs-indicator": { bgcolor: "primary.main" },
-                ".MuiButtonBase-root.MuiTab-root.Mui-selected": {
-                  color: "primary.main",
-                  py: 2,
-                },
-              }}
+            <Grid
+              item
+              xs={4}
+              md={3}
+              sx={
+                matches
+                  ? {
+                      borderBottom: 3,
+                      borderColor: "divider",
+                      maxWidth: "100%!important",
+                    }
+                  : {
+                      borderRight: 3,
+                      borderColor: "divider",
+                      maxWidth: "100%!important",
+                    }
+              }
             >
+              <Tabs
+                indicatorColor="red"
+                orientation={matches ? "horizontal" : "vertical"}
+                variant={matches ? "scrollable" : "standard"}
+                value={value}
+                onChange={handleChange}
+                centered={!matches}
+                sx={{
+                  ".MuiTabs-indicator": { bgcolor: "primary.main" },
+                  ".MuiButtonBase-root.MuiTab-root.Mui-selected": {
+                    color: "primary.main",
+                    py: 2,
+                  },
+                }}
+              >
+                {jobs?.length > 0 &&
+                  jobs.map((job, i) => {
+                    return (
+                      <Tab
+                        key={i}
+                        label={
+                          <Typography
+                            sx={{
+                              fontSize: { xs: "0.8rem" },
+                              fontWeight: "light",
+                              textDecoration: "none",
+                            }}
+                          >
+                            {job?.title}
+                          </Typography>
+                        }
+                      />
+                    );
+                  })}
+              </Tabs>
+            </Grid>
+            <Grid item xs={8} sx={{ maxWidth: "100%!important" }}>
               {jobs?.length > 0 &&
                 jobs.map((job, i) => {
                   return (
-                    <Tab
-                      key={i}
-                      label={
-                        <Typography
-                          sx={{
-                            fontSize: { xs: "0.8rem" },
-                            fontWeight: "light",
-                            textDecoration: "none",
-                          }}
-                        >
-                          {job?.title}
-                        </Typography>
-                      }
-                    />
+                    <TabPanel value={value} index={i} key={i}>
+                      <Typography
+                        variant="h5"
+                        sx={{
+                          color: "secondary.dark",
+                          fontWeight: "light",
+                          display: "inline-block",
+                          fontSize: ".9rem",
+                          display: { xs: "none", md: "inline-block" },
+                        }}
+                      >
+                        {job?.title}
+                      </Typography>
+                      <Typography
+                        variant="h5"
+                        sx={{
+                          color: "info.main",
+                          display: { xs: "none", md: "inline-block" },
+                        }}
+                      >
+                        @
+                      </Typography>
+                      <Typography
+                        variant="h5"
+                        sx={{
+                          color: "info.main",
+                          display: "inline-block",
+                        }}
+                      >
+                        {job?.company}
+                      </Typography>
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          color: "primary.main",
+                          fontWeight: "light",
+                          pb: 1,
+                        }}
+                      >
+                        {job.dates}
+                      </Typography>
+                      {job.tasks?.length > 0 &&
+                        job.tasks.map((task, i) => {
+                          return (
+                            <Box key={i} index={i} sx={{ display: "flex" }}>
+                              <span>
+                                <ArrowRightOutlinedIcon />
+                              </span>
+                              <Typography
+                                align={"justify"}
+                                sx={{
+                                  display: "inline-block",
+                                  verticalAlign: "top",
+                                  color: "secondary.dark",
+                                  textDecoration: "none",
+                                  fontSize: { xs: "0.8rem" },
+                                  fontWeight: "light",
+                                  py: { xs: 1, md: 0.4 },
+                                }}
+                              >
+                                {task}
+                              </Typography>
+                            </Box>
+                          );
+                        })}
+                    </TabPanel>
                   );
                 })}
-            </Tabs>
+            </Grid>
           </Grid>
-          <Grid item xs={8} sx={{ maxWidth: "100%!important" }}>
-            {jobs?.length > 0 &&
-              jobs.map((job, i) => {
-                return (
-                  <TabPanel value={value} index={i} key={i}>
-                    <Typography
-                      variant="h5"
-                      sx={{
-                        color: "secondary.dark",
-                        fontWeight: "light",
-                        display: "inline-block",
-                        fontSize: ".9rem",
-                        display: { xs: "none", md: "inline-block" },
-                      }}
-                    >
-                      {job?.title}
-                    </Typography>
-                    <Typography
-                      variant="h5"
-                      sx={{
-                        color: "info.main",
-                        display: { xs: "none", md: "inline-block" },
-                      }}
-                    >
-                      @
-                    </Typography>
-                    <Typography
-                      variant="h5"
-                      sx={{
-                        color: "info.main",
-                        display: "inline-block",
-                      }}
-                    >
-                      {job?.company}
-                    </Typography>
-                    <Typography
-                      variant="h6"
-                      sx={{ color: "primary.main", fontWeight: "light", pb: 1 }}
-                    >
-                      {job.dates}
-                    </Typography>
-                    {job.tasks?.length > 0 &&
-                      job.tasks.map((task, i) => {
-                        return (
-                          <Box key={i} index={i} sx={{ display: "flex" }}>
-                            <span>
-                              <ArrowRightOutlinedIcon />
-                            </span>
-                            <Typography
-                              align={"justify"}
-                              sx={{
-                                display: "inline-block",
-                                verticalAlign: "top",
-                                color: "secondary.dark",
-                                textDecoration: "none",
-                                fontSize: { xs: "0.8rem" },
-                                fontWeight: "light",
-                                py: { xs: 1, md: 0.4 },
-                              }}
-                            >
-                              {task}
-                            </Typography>
-                          </Box>
-                        );
-                      })}
-                  </TabPanel>
-                );
-              })}
-          </Grid>
-        </Grid>
-      </TerminalExperience>
+        </TerminalExperience>
+      </Grow>
     </Container>
   );
 };

@@ -9,8 +9,11 @@ import {
   Typography,
   useMediaQuery,
   useTheme,
+  Grow,
 } from "@mui/material";
 import TerminalContainer from "../Experience/TerminalContainer";
+import { useViewPortPage } from "../../../hooks/useViewPortPage";
+import { forwardRef, createRef } from "react";
 
 const Projects = [
   {
@@ -48,7 +51,7 @@ const Projects = [
   },
 ];
 
-const ProjectDisplay = (props) => {
+const ProjectDisplay = forwardRef((props, ref) => {
   const { orientation, project, ...other } = props;
 
   return (
@@ -57,6 +60,7 @@ const ProjectDisplay = (props) => {
       direction={orientation === "left" ? "row-reverse" : "row"}
       {...other}
       alignItems="center"
+      ref={ref}
     >
       <Grid item xs={7}>
         <Box
@@ -177,13 +181,13 @@ const ProjectDisplay = (props) => {
       </Grid>
     </Grid>
   );
-};
+});
 
-const MobileProjectDisplay = (props) => {
+const MobileProjectDisplay = forwardRef((props, ref) => {
   const { project, ...other } = props;
 
   return (
-    <Grid container {...other} alignItems="center">
+    <Grid container {...other} alignItems="center" ref={ref}>
       <Grid item xs={12}>
         <Box
           sx={{
@@ -287,11 +291,14 @@ const MobileProjectDisplay = (props) => {
       </Grid>
     </Grid>
   );
-};
+});
 
 const Work: any = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"), { noSsr: true });
+  const viewPortPage = useViewPortPage(0);
+  const isWork = viewPortPage > 2;
+  const ref = createRef();
 
   return (
     <Container
@@ -308,39 +315,43 @@ const Work: any = () => {
       }}
       id="work"
     >
-      <Box>
-        <Typography
-          sx={{
-            color: "secondary.main",
-            textDecoration: "none",
-            fontSize: { xs: "1.5rem", md: "2rem" },
-            fontWeight: "light",
-            pb: 2,
-          }}
-        >
-          What I've Built
-        </Typography>
-        {Projects?.length > 0 &&
-          Projects.map((project, i) => {
-            return !isMobile ? (
-              <ProjectDisplay
-                key={i}
-                project={project}
-                orientation={(i + 1) % 2 === 0 ? "right" : "left"}
-                index={i}
-                sx={{ pb: 12 }}
-              />
-            ) : (
-              <MobileProjectDisplay
-                key={i}
-                project={project}
-                orientation={(i + 1) % 2 === 0 ? "right" : "left"}
-                index={i}
-                sx={{ pb: { xs: 7, md: 20 } }}
-              />
-            );
-          })}
-      </Box>
+      <Grow in={isWork} timeout={1500}>
+        <Box>
+          <Typography
+            sx={{
+              color: "secondary.main",
+              textDecoration: "none",
+              fontSize: { xs: "1.5rem", md: "2rem" },
+              fontWeight: "light",
+              pb: 2,
+            }}
+          >
+            What I've Built
+          </Typography>
+          {Projects?.length > 0 &&
+            Projects.map((project, i) => {
+              return !isMobile ? (
+                <ProjectDisplay
+                  key={i}
+                  project={project}
+                  orientation={(i + 1) % 2 === 0 ? "right" : "left"}
+                  index={i}
+                  sx={{ pb: 12 }}
+                  ref={ref}
+                />
+              ) : (
+                <MobileProjectDisplay
+                  key={i}
+                  project={project}
+                  orientation={(i + 1) % 2 === 0 ? "right" : "left"}
+                  index={i}
+                  sx={{ pb: { xs: 7, md: 20 } }}
+                  ref={ref}
+                />
+              );
+            })}
+        </Box>
+      </Grow>
     </Container>
   );
 };

@@ -1,27 +1,24 @@
-import Icon from "./Icon";
 import { default as MenuIcon } from "@mui/icons-material/Menu";
 import {
   AppBar,
   Box,
-  Button,
-  IconButton,
+  Button, Grow, IconButton,
   Menu,
-  MenuItem,
-  Paper,
-  Toolbar,
-  Typography,
-  Grow,
+  MenuItem, Toolbar,
+  Typography
 } from "@mui/material";
 import { useState } from "react";
+import { useViewPortPage } from "../../hooks/useViewPortPage";
+import Icon from "./Icon";
 
 const pages = ["about", "experience", "work", "contact"];
 
-export const Header = ({ viewPortPage }: any) => {
+export const Header = (props) => {
+  const viewPortPage = useViewPortPage(0);
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
@@ -67,7 +64,7 @@ export const Header = ({ viewPortPage }: any) => {
         <Icon sx={logoStyle} />
         <Box sx={{ display: { xs: "none", md: "inline-block" } }}>
           {pages.map((page, i) => (
-            <Grow key={page} appear={true} in={true} timeout={700 + (i*300)}>
+            <Grow key={page} appear={true} in={true} timeout={700 + i * 300}>
               <Button
                 key={page}
                 href={`/#${page}`}

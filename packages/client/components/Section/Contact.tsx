@@ -1,5 +1,4 @@
-import { Button, Container, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Button, Container, Typography, Box } from "@mui/material";
 
 const Contact = () => {
   const handleChange = (e) => {
@@ -77,18 +76,19 @@ const Contact = () => {
         >
           Contact
         </Button>
-        <Typography
-          sx={{
-            pt: { xs: "20%", md: "20%" },
-            fontFamily: "Cutive Mono, monospace;",
-            fontSize: ".8rem",
-            textDecoration: "none",
-            color: "primary.dark",
-          }}
-        >
-          Developed by Hernán Chalco.
-        </Typography>
       </Box>
+      <Typography
+        sx={{
+          pt: { xs: "20%", md: "20%" },
+          fontFamily: "Cutive Mono, monospace;",
+          fontSize: ".8rem",
+          textDecoration: "none",
+          color: "primary.dark",
+        }}
+        align="center"
+      >
+        Developed by Hernán Chalco.
+      </Typography>
     </Container>
   );
 };

@@ -5,7 +5,9 @@ import Experience from "../components/Section/Experience/Index";
 import Intro from "../components/Section/Intro";
 import Work from "../components/Section/Work/Index";
 
-const Home: any = () => {
+const Home: any = (props) => {
+  console.log('rendering home')
+    
   return (
     <Box
       sx={{

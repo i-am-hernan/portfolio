@@ -1,10 +1,11 @@
 import { Box, Paper, Typography } from "@mui/material";
+import { forwardRef } from "react";
 
-const TerminalExperience = (props: any) => {
+const TerminalExperience = forwardRef((props, ref) => {
   const { children, title, ...other } = props;
 
   return (
-    <Paper {...other}>
+    <Paper {...other} ref={ref}>
       <Box
         sx={{
           display: "flex",
@@ -58,7 +59,7 @@ const TerminalExperience = (props: any) => {
             px: "10",
             textAlign: "center",
             fontSize: "1rem",
-            ml: "-60px"
+            ml: "-60px",
           }}
         >
           {`${title} --.bash`}
@@ -67,6 +68,6 @@ const TerminalExperience = (props: any) => {
       {children}
     </Paper>
   );
-};
+});
 
 export default TerminalExperience;

@@ -24,7 +24,6 @@ export const Footer = () => {
       dispatch(updateSession({ theme: "light" }));
     }
   };
-
   return (
     <Box
       sx={{

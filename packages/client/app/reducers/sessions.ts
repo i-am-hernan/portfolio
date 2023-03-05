@@ -12,6 +12,9 @@ export const sessionSlice = createSlice({
     updateSession: (state, action: PayloadAction<Session>) => {
       return { ...state, ...action.payload };
     },
+    updateTheme: (state, action: PayloadAction<Session>) => {
+      return { ...state, theme: action.payload };
+    },
     clearSession: (state) => {
       return initialState;
     },
