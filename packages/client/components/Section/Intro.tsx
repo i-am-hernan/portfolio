@@ -64,7 +64,6 @@ const Intro: any = () => {
       </Grow>
       <Grow appear={true} in={true} timeout={1600}>
         <Box>
-          {" "}
           <Typography
             sx={{
               color: "primary.dark",

@@ -76,8 +76,6 @@ const Experience = (props) => {
   };
   const ref = createRef();
 
-  console.log("isExperience", isExperience);
-
   return (
     <Container
       component="section"
