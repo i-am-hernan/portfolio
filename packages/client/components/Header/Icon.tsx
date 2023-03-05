@@ -52,7 +52,7 @@ const Icon = (props) => {
         href="/"
         sx={{
           display: { xs: "inline-block" },
-          color: "#E07A5F",
+          color: "#FF8B13",
           textDecoration: "none",
           fontSize: "1rem",
           p: 0.5,

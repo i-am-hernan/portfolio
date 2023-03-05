@@ -7,21 +7,15 @@ import { store } from "../store";
 const App = ({ Component, pageProps }) => {
   return (
     <div>
-      <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-0N29V0GV97"
-      />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `  window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', 'G-0N29V0GV97');`,
-        }}
-      />
+      <noscript>
+        <iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-KP3XH6J"
+          height="0"
+          width="0"
+          style={{ display: "none", visibility: "hidden" }}
+        ></iframe>
+      </noscript>
       <Provider store={store}>
-        {/* <Layout main={<Component {...pageProps} />} /> */}
         <Layout>
           <Component {...pageProps} />
         </Layout>

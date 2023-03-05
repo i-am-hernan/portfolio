@@ -78,6 +78,7 @@ const Intro: any = () => {
             like to learn and turnout robust code for tech companies.
           </Typography>
           <Button
+            id="contact-me"
             sx={{
               color: "primary.main",
               borderColor: "primary.main",

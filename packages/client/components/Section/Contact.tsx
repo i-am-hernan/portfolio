@@ -60,6 +60,7 @@ const Contact = () => {
       </Typography>
       <Box sx={{ textAlign: "center", mt: 4 }}>
         <Button
+          id="contact-me"
           onClick={(e) => {
             handleChange(e);
           }}
