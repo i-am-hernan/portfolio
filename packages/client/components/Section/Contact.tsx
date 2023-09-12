@@ -3,7 +3,7 @@ import { Button, Container, Typography, Box } from "@mui/material";
 const Contact = () => {
   const handleChange = (e) => {
     e.preventDefault();
-    window.open("mailto:hernan.prototype@gmail.com?subject=Hello!");
+    window.open("mailto:hernan.s.chalco@gmail.com?subject=Hello!");
   };
 
   return (

@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { Session } from "../types";
 
 const initialState: Session = {
-  theme: "light",
+  theme: "dark",
 };
 
 export const sessionSlice = createSlice({

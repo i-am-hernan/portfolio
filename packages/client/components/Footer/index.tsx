@@ -14,7 +14,7 @@ export const Footer = () => {
 
   const handleChange = (e) => {
     e.preventDefault();
-    window.open("mailto:hernan.prototype@gmail.com?subject=Hello!");
+    window.open("mailto:hernan.s.chalco@gmail.com?subject=Hello!");
   };
 
   const handleThemeChange = () => {
@@ -58,7 +58,7 @@ export const Footer = () => {
           }}
           onClick={handleChange}
         >
-          hernan.prototype@gmail.com
+          hernan.s.chalco@gmail.com
         </Typography>
       </Grow>
       <Grow appear={true} in={true} timeout={1600}>
