@@ -2,31 +2,36 @@ export const lightTheme: any = {
   palette: {
     type: "light",
     primary: {
-      main: "#01BAEF",
-      gray: "#bdbdbd",
-      border: "#d2dae1",
-      light: "#FFFFFF",
-      dark: "#00112C",
+      main: "hsl(240 10% 3.9%)",
+      gray: "hsl(215.4 16.3% 56.9%)",
+      border: "hsl(214.3 31.8% 91.4%)",
+      light: "hsl(49 26.8% 92%)",
+      dark: "hsl(240 10% 3.9%)",
     },
     secondary: {
-      main: "#FF8B13",//"previously #E07A5F"
-      gray: "#F2F6F9",
-      light: "#f3f6f9",
-      dark: "#011627",
+      main: "#5865f2",
+      gray: "hsl(210 40% 96.1%)",
+      light: "hsl(49 26.8% 92%)",
+      dark: "hsl(240 10% 3.9%)",
     },
     background: {
-      paper: "#fff",
-      default: "#fff",
+      paper: "hsl(49 26.8% 92%)",
+      default: "hsl(49 26.8% 92%)",
+      main: "hsl(49 26.8% 92%)",
+    },
+    foreground: {
+      main: "hsl(240 10% 3.9%)",
+      secondary: "hsl(215.4 16.3% 56.9%)",
     },
     info: {
-      main: "#FF8B13",
-      secondary: "#01BAEF",
+      main: "#5865f2",
+      secondary: "hsl(49 26.8% 92%)",
     },
   },
   typography: {
-    fontFamily: "Poppins, sans-serif",
+    fontFamily: "poppins, sans-serif",
     body2: {
-      fontFamily: "Poppins, sans-serif",
+      fontFamily: "poppins, sans-serif",
       fontSize: "0.9rem",
       fontWeight: 400,
       lineHeight: 1.8,
@@ -34,24 +39,24 @@ export const lightTheme: any = {
     h2: {
       fontWeight: 600,
       fontSize: "2.4rem",
-      fontFamily: "Poppins, sans-serif",
+      fontFamily: "poppins, sans-serif",
     },
     h3: {
       fontWeight: 600,
       fontSize: "1.4rem",
-      fontFamily: "Poppins, sans-serif",
+      fontFamily: "poppins, sans-serif",
     },
     h4: {
       fontWeight: 600,
       fontSize: "1.1rem",
-      fontFamily: "Poppins, sans-serif",
-      color: "#00112c",
+      fontFamily: "poppins, sans-serif",
+      color: "hsl(222.2 47.4% 11.2%)",
     },
     h5: {
       fontWeight: 600,
       fontSize: "1rem",
-      fontFamily: "Poppins, sans-serif",
-      color: "#00112c",
+      fontFamily: "poppins, sans-serif",
+      color: "hsl(222.2 47.4% 11.2%)",
     },
     h6: {
       fontWeight: 500,
@@ -61,17 +66,17 @@ export const lightTheme: any = {
     caption: {
       color: "primary.light",
       fontSize: "0.8rem",
-      fontWeight: "light",
+      fontFamily: "poppins, sans-serif",
     },
     subtitle1: {
       fontWeight: 500,
       fontSize: "1.1rem",
-      fontFamily: "Roboto, sans-serif",
+      fontFamily: "roboto, sans-serif",
     },
     subtitle2: {
       fontWeight: 400,
       fontSize: ".95rem",
-      fontFamily: "Roboto, sans-serif",
+      fontFamily: "roboto, sans-serif",
     },
   },
   props: {
@@ -98,31 +103,36 @@ export const darkTheme: any = {
   palette: {
     type: "dark",
     primary: {
-      main: "#FF8B13",
-      gray: "#bdbdbd",
-      border: "#d2dae1",
-      light: "#00112C",
-      dark: "#f3f6f9",
+      main: "hsl(0 0% 98%)",
+      gray: "hsl(215.4 16.3% 56.9%)",
+      border: "hsl(240 10% 3.9%)",
+      light: "hsl(240 10% 3.9%)",
+      dark: "hsl(240 10% 3.9%)",
     },
     secondary: {
-      main: "#01BAEF",
-      gray: "#F2F6F9",
-      light: "#f3f6f9",
-      dark: "#011627",
+      main: "#5865f2",
+      gray: "hsl(240 10% 3.9%)",
+      light: "hsl(240 10% 3.9%)",
+      dark: "hsl(210 40% 98%)",
     },
     background: {
-      paper: "#fff",
-      default: "#fff",
+      paper: "hsl(240 10% 3.9%)",
+      main: "hsl(240 10% 3.9%)",
+      default: "hsl(240 10% 3.9%)",
+    },
+    foreground: {
+      main: "hsl(0 0% 98%)",
+      secondary: "hsl(215.4 16.3% 56.9%)",
     },
     info: {
-      main: "#00112C",
-      secondary: "#01BAEF",
+      main: "#5865f2",
+      secondary: "hsl(240 10% 3.9%)",
     },
   },
   typography: {
-    fontFamily: "Poppins, sans-serif",
+    fontFamily: "poppins, sans-serif",
     body2: {
-      fontFamily: "Poppins, sans-serif",
+      fontFamily: "poppins, sans-serif",
       fontSize: "0.9rem",
       fontWeight: 400,
       lineHeight: 1.8,
@@ -130,24 +140,24 @@ export const darkTheme: any = {
     h2: {
       fontWeight: 600,
       fontSize: "2.4rem",
-      fontFamily: "Poppins, sans-serif",
+      fontFamily: "poppins, sans-serif",
     },
     h3: {
       fontWeight: 600,
       fontSize: "1.4rem",
-      fontFamily: "Poppins, sans-serif",
+      fontFamily: "poppins, sans-serif",
     },
     h4: {
       fontWeight: 600,
       fontSize: "1.1rem",
-      fontFamily: "Poppins, sans-serif",
-      color: "#00112c",
+      fontFamily: "poppins, sans-serif",
+      color: "hsl(222.2 47.4% 11.2%)",
     },
     h5: {
       fontWeight: 600,
       fontSize: "1rem",
-      fontFamily: "Poppins, sans-serif",
-      color: "#00112c",
+      fontFamily: "poppins, sans-serif",
+      color: "hsl(222.2 47.4% 11.2%)",
     },
     h6: {
       fontWeight: 500,
@@ -157,17 +167,17 @@ export const darkTheme: any = {
     caption: {
       color: "primary.light",
       fontSize: "0.8rem",
-      fontFamily: "Poppins, sans-serif",
+      fontFamily: "poppins, sans-serif",
     },
     subtitle1: {
       fontWeight: 500,
       fontSize: "1.1rem",
-      fontFamily: "Roboto, sans-serif",
+      fontFamily: "roboto, sans-serif",
     },
     subtitle2: {
       fontWeight: 400,
       fontSize: ".95rem",
-      fontFamily: "Roboto, sans-serif",
+      fontFamily: "roboto, sans-serif",
     },
   },
   props: {

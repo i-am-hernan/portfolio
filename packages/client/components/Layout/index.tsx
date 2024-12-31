@@ -5,9 +5,9 @@ import { Footer } from "../Footer";
 import { Header } from "../Header";
 import { darkTheme, lightTheme } from "../theme";
 
-export const Layout = (props) => {
+export const Layout = (props: { children: React.ReactNode }) => {
   const { children } = props;
-  const { theme } = useSelector((state) => state.session);
+  const { theme } = useSelector((state: { session: { theme: string } }) => state.session);
   let portfolioTheme =
     theme === "dark" ? createTheme(darkTheme) : createTheme(lightTheme);
 

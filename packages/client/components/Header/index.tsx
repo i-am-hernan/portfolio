@@ -2,40 +2,46 @@ import { default as MenuIcon } from "@mui/icons-material/Menu";
 import {
   AppBar,
   Box,
-  Button, Grow, IconButton,
+  Button,
+  Grow,
+  IconButton,
   Menu,
-  MenuItem, Toolbar,
-  Typography
+  MenuItem,
+  Toolbar,
+  Typography,
 } from "@mui/material";
 import { useState } from "react";
 import { useViewPortPage } from "../../hooks/useViewPortPage";
 import Icon from "./Icon";
+import React from "react";
 
 const pages = ["about", "experience", "work", "contact"];
 
 export const Header = (props) => {
   const viewPortPage = useViewPortPage(0);
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-  const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => {
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-  let navStyle = null;
-  let logoStyle = null;
-  let textStyle = null;
+  let navStyle: any = null;
+  let logoStyle: any = {color: "background.main",};
+  let textStyle: any = null;
+
   if (viewPortPage) {
     navStyle = {
-      bgcolor: "primary.light",
+      bgcolor: "background.main",
       transition: "background-color 1s",
     };
     logoStyle = {
-      borderColor: "primary.main",
+      borderColor: "foreground.main",
       transition: "background-color 1s",
+      color: "foreground.main",
     };
     textStyle = {
-      color: "primary.dark",
+      color: "foreground.main",
       transition: "background-color 1s",
     };
   }
@@ -50,35 +56,58 @@ export const Header = (props) => {
 
   return (
     <AppBar sx={{ boxShadow: "0" }}>
-      <Toolbar
-        disableGutters
+      <Box
         sx={{
           justifyContent: "space-between",
           display: "flex",
           px: { xs: 2, md: 4 },
-          py: 0,
+          py: 0.5,
           bgcolor: "primary.main",
           ...navStyle,
         }}
       >
         <Icon sx={logoStyle} />
-        <Box sx={{ display: { xs: "none", md: "inline-block" } }}>
+        <Box
+          sx={{
+            justifyContent: "flex-start",
+            display: { xs: "none", md: "flex" },
+          }}
+        >
           {pages.map((page, i) => (
             <Grow key={page} appear={true} in={true} timeout={700 + i * 300}>
               <Button
                 key={page}
                 href={`/#${page}`}
-                sx={{
-                  color: "primary.light",
-                  display: "inline-block",
-                  px: 1,
-                  ...textStyle,
-                }}
+                sx={
+                  i < pages.length - 1
+                    ? {
+                        color: "primary.light",
+                        display: "inline-block",
+                        ...textStyle,
+                        px: 0,
+                      }
+                    : {
+                        color: "background.main",
+                        border: 1,
+                        bgcolor: "foreground.main",
+                        borderColor: "background.main",
+                        ":hover": {
+                          borderColor: "foreground.main",
+                          bgcolor: "background.main",
+                          color: "foreground.main",
+                        },
+                        px: 0,
+                      }
+                }
               >
                 <Typography
+                  variant="h1"
                   sx={{
-                    fontFamily: "Cutive Mono, monospace;",
-                    fontSize: "0.9rem",
+                    fontFamily: "sans-serif",
+                    fontSize: "0.85rem",
+                    textTransform: "none",
+                    width: "100%",
+                    textAlign: "center",
                   }}
                 >
                   {page}
@@ -86,31 +115,10 @@ export const Header = (props) => {
               </Button>
             </Grow>
           ))}
-          <Button
-            sx={{
-              color: "primary.light",
-              mx: 1,
-              border: 1,
-              bgcolor: "secondary.main",
-              borderColor: "secondary.main",
-              ":hover": {
-                borderColor: "secondary.main",
-                bgcolor: "primary.light",
-                color: "secondary.main",
-              },
-            }}
-            size="small"
-            variant="contained"
-            onClick={(e) => {
-              handleClick(e);
-            }}
-          >
-            Resume
-          </Button>
         </Box>
         <Box sx={{ display: { xs: "inline-block", md: "none" } }}>
           <IconButton
-            size="large"
+            size="small"
             aria-label="menu options"
             aria-controls="menu-appbar"
             aria-haspopup="true"
@@ -137,7 +145,7 @@ export const Header = (props) => {
                   component="a"
                   href={`/#${page}`}
                   sx={{
-                    fontFamily: "Cutive Mono, monospace;",
+                    fontFamily: "sans-serif",
                     fontSize: "0.9rem",
                     textDecoration: "none",
                     color: "secondary.dark",
@@ -149,7 +157,7 @@ export const Header = (props) => {
             ))}
           </Menu>
         </Box>
-      </Toolbar>
+      </Box>
     </AppBar>
   );
 };

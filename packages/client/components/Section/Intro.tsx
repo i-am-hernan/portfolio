@@ -1,5 +1,5 @@
 import { Button, Container, Typography, Grow, Box } from "@mui/material";
-
+import React from "react";
 const Intro: any = () => {
   const handleChange = (e) => {
     e.preventDefault();
@@ -12,9 +12,9 @@ const Intro: any = () => {
       disableGutters
       component="section"
       sx={{
-        bgcolor: "primary.light",
         transition: "background-color 0.5s linear",
         pt: "25vh",
+        bgcolor: "background.main",
         top: 0,
         left: 0,
         right: 0,
@@ -31,7 +31,7 @@ const Intro: any = () => {
             fontFamily: "Cutive Mono, monospace;",
             fontSize: "1.2rem",
             textDecoration: "none",
-            color: "primary.dark",
+            color: "foreground.main",
           }}
         >
           Hi, my name is
@@ -42,12 +42,13 @@ const Intro: any = () => {
           sx={{
             color: "primary.main",
             textDecoration: "none",
+            fontWeight: "100",
             fontSize: { xs: "3rem", md: "4rem" },
-            fontFamily: "Yomogi, cursive",
+            fontFamily: "Roboto Mono, monospace",
             letterSpacing: "-3px",
           }}
         >
-          Hernán Chalco.
+          Hernán Chalco
         </Typography>
       </Grow>
       <Grow appear={true} in={true} timeout={1300}>
@@ -59,40 +60,41 @@ const Intro: any = () => {
             fontWeight: "light",
           }}
         >
-          I bridge technical gaps.
+          I build cool stuff.
         </Typography>
       </Grow>
       <Grow appear={true} in={true} timeout={1600}>
         <Box>
           <Typography
             sx={{
-              color: "primary.dark",
+              color: "foreground.main",
               textDecoration: "none",
               fontSize: { xs: "0.9rem" },
               fontWeight: "light",
               py: 4,
             }}
           >
-            I am a software engineer and technical consultant. I am eager to
-            bridge the gap between business requirements and implementation. I
-            like to learn and turnout robust code for tech companies.
+            I am a software engineer and technical consultant. I love learning
+            new technologies, but more importantly, I love applying those
+            technologies to solve real business problems.
           </Typography>
           <Button
             id="contact-me"
             sx={{
-              color: "primary.main",
-              borderColor: "primary.main",
-              px: 2,
+              color: "foreground.main",
+              borderColor: "foreground.main",
+              border: "1px solid",
+              textTransform: "none",
               ":hover": {
-                backgroundColor: "secondary.main",
-                color: "primary.light",
-                borderColor: "secondary.main",
+                backgroundColor: "foreground.main",
+                color: "background.main",
+                borderColor: "foreground.main",
               },
             }}
             variant="outlined"
             onClick={handleChange}
           >
-            Say hello!
+            say hello
           </Button>
         </Box>
       </Grow>

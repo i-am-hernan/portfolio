@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import React from "react";
 
 class MyDocument extends Document {
   render() {
@@ -19,7 +20,7 @@ class MyDocument extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
-          <meta charset="UTF-8" />
+          <meta charSet="UTF-8" />
           <meta name="author" content="Hernan" />
           <meta name="description" content="Hernan's Portfolio" />
           <meta property="og:title" content="Hernan's Portfolio" />
@@ -48,9 +49,13 @@ class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#ffffff" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
           <link
-            href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Poppins:wght@100;200;300;500;600;700&family=Roboto:wght@300;500&family=Yomogi&display=swap"
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="anonymous"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Poppins:wght@100;200;300;500;600;700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:wght@300;500&family=Sometype+Mono&display=swap"
             rel="stylesheet"
           />
         </Head>

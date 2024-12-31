@@ -8,37 +8,37 @@ import { useDispatch, useSelector } from "react-redux";
 import { sessionActions } from "../../app";
 
 export const Footer = () => {
-  const { theme } = useSelector((state) => state.session);
+  const { theme } = useSelector((state: { session: { theme: string } }) => state.session);
   const { updateSession } = sessionActions;
   const dispatch = useDispatch();
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     window.open("mailto:hernan.s.chalco@gmail.com?subject=Hello!");
   };
 
   const handleThemeChange = () => {
     if (theme === "light") {
-      dispatch(updateSession({ theme: "dark" }));
+      dispatch(updateSession({ theme: "dark" } as any));
     } else {
-      dispatch(updateSession({ theme: "light" }));
+      dispatch(updateSession({ theme: "light" } as any));
     }
   };
   return (
     <Box
+      component="div"
       sx={{
         py: 0,
         position: "fixed",
         right: 0,
         bottom: 0,
         px: { xs: 0, md: 2 },
-        color: "secondary.main",
+        color: "foreground.main",
         display: { xs: "flex" },
         flexDirection: "column",
         fontSize: "2rem",
         alignItems: "center",
       }}
-      direction="column"
     >
       <Grow appear={true} in={true} timeout={1900}>
         <Typography
@@ -51,9 +51,7 @@ export const Footer = () => {
             textDecoration: "none",
             py: 2,
             fontWeight: "bold",
-            ":hover": {
-              color: "info.secondary",
-            },
+            color: "secondary.main",
             display: { xs: "none", md: "block" },
           }}
           onClick={handleChange}
@@ -66,9 +64,6 @@ export const Footer = () => {
           href="https://github.com/objStevo"
           sx={{
             color: "secondary.main",
-            ":hover": {
-              color: "info.secondary",
-            },
           }}
         >
           <GitHubIcon sx={{ pb: { xs: 0, md: 1 }, fontSize: "2rem" }} />
@@ -79,9 +74,6 @@ export const Footer = () => {
           href="https://linkedin.com/in/hernanchalco"
           sx={{
             color: "secondary.main",
-            ":hover": {
-              color: "info.secondary",
-            },
           }}
         >
           <LinkedInIcon sx={{ pb: { xs: 0, md: 1 }, fontSize: "2rem" }} />
@@ -93,9 +85,6 @@ export const Footer = () => {
           sx={{
             color: "secondary.main",
             cursor: "pointer",
-            ":hover": {
-              color: "info.secondary",
-            },
           }}
         >
           {theme === "light" ? (
@@ -103,7 +92,6 @@ export const Footer = () => {
               sx={{
                 pb: { xs: 0, md: 1 },
                 fontSize: "2rem",
-                pb: { xs: 1, md: 0 },
               }}
             />
           ) : (
@@ -111,7 +99,6 @@ export const Footer = () => {
               sx={{
                 pb: { xs: 0, md: 1 },
                 fontSize: "2rem",
-                pb: { xs: 1, md: 0 },
               }}
             />
           )}
@@ -121,9 +108,8 @@ export const Footer = () => {
         <Container>
           <Box
             sx={{
-              border: 1,
               height: { xs: "30px", md: "90px" },
-              width: "1px",
+              width: "3px",
               bgcolor: "secondary.main",
               display: { xs: "none", md: "block" },
             }}

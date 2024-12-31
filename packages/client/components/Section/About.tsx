@@ -1,6 +1,7 @@
 import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import Typewriter from "typewriter-effect";
+import React from "react";
 
 const About: any = () => {
   const stack = [
@@ -13,6 +14,7 @@ const About: any = () => {
     "TypeScript",
     "Heroku",
     "Material-UI",
+    "Tailwind",
   ];
 
   const stackFirstHalf = Math.floor(stack.length / 2) + 1;
@@ -30,11 +32,19 @@ const About: any = () => {
         {items.length > 0 &&
           items.map((item, i) => {
             return (
-              <Box key={i} index={i} sx={{ display: "flex" }}>
-                <span>
-                  <ArrowRightOutlinedIcon />
-                </span>
-                <Box sx={{ color: "primary.light" }}>
+              <Box key={i} sx={{ display: "flex", alignItems: "center" }}>
+                <Box
+                  sx={{
+                    display: "inline-block",
+                    width: "3px",
+                    height: "3px",
+                    borderRadius: "50%",
+                    border: '1px solid',
+                    marginRight: '8px',
+                    borderColor: "background.main",
+                  }}
+                />
+                <Box sx={{ color: "background.main" }}>
                   <Typography variant={variant}>
                     {item}
                   </Typography>
@@ -75,7 +85,7 @@ const About: any = () => {
             height: "100%",
           }}
         >
-          <img src="/san-francisco.jpg" width={"100%"} height={"100%"} />
+          <img src="/avatar.png" width={"100%"} height={"100%"} />
         </Grid>
         <Grid item xs={12} md={6}>
           <Grid
@@ -95,7 +105,7 @@ const About: any = () => {
             <Grid item xs>
               <Typography
                 sx={{
-                  color: "secondary.dark",
+                  color: "background.main",
                   fontFamily: "Cutive Mono, monospace;",
                   fontSize: "2rem",
                   fontWeight: "bolder",
@@ -112,22 +122,22 @@ const About: any = () => {
                 onInit={(typewriter) => {
                   typewriter
                     .typeString(
-                      '<span style="color: white; font-family: Poppins,sans-serif; font-size: 3rem; font-weight: 300;">Developer.</span>'
+                      '<span style="color: #5865f2; font-family: Roboto Mono, monospace; font-size: 3rem; font-weight: 300;">developer</span>'
                     )
                     .pauseFor(2500)
                     .deleteAll()
                     .typeString(
-                      '<span style="color: white; font-family: Poppins,sans-serif; font-size: 3rem; font-weight: 300;">Consultant.</span>'
+                      '<span style="color: #5865f2; font-family: Roboto Mono, monospace; font-size: 3rem; font-weight: 300;">consultant</span>'
                     )
                     .pauseFor(2500)
                     .deleteAll()
                     .typeString(
-                      '<span style="color: white; font-family: Poppins,sans-serif; font-size: 3rem; font-weight: 300;">Yo-yo enthusiast.</span>'
+                      '<span style="color: #5865f2; font-family: Roboto Mono, monospace; font-size: 3rem; font-weight: 300;">yo-yo enthusiast</span>'
                     )
                     .pauseFor(2500)
                     .deleteAll()
                     .typeString(
-                      '<span style="color: white; font-family: Poppins,sans-serif; font-size: 3rem; font-weight: 300;">Designer.</span>'
+                      '<span style="color: #5865f2; font-family: Roboto Mono, monospace; font-size: 3rem; font-weight: 300;">designer</span>'
                     )
                     .pauseFor(2500)
                     .deleteAll()
@@ -135,10 +145,13 @@ const About: any = () => {
                 }}
               />
               <Typography
+                variant="h1"
                 sx={{
-                  color: "white",
-                  fontFamily: "Poppins,sans-serif;",
-                  fontSize: { xs: ".9rem", md: "1rem" },
+                  color: "background.main",
+                  fontFamily: "sans-serif",
+                  fontSize: { xs: ".9rem", md: "0.85rem" },
+                  lineHeight: "2",
+                  textTransform: "none",
                   fontWeight: "light",
                   textDecoration: "none",
                   pt: 3,
@@ -150,7 +163,7 @@ const About: any = () => {
                 yo-yo-ing, lots of keto ice cream (thus not keto), and
                 leveling-up just a little bit more each day.
               </Typography>
-              <Grid container sx={{ pt: 2 }}>
+              <Grid container sx={{ pt: 2, pl:2 }}>
                 <Grid item xs={6} md={4}>
                   <UnorderedList
                     items={stack.slice(0, stackFirstHalf)}

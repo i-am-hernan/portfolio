@@ -4,6 +4,7 @@ import Contact from "../components/Section/Contact";
 import Experience from "../components/Section/Experience/Index";
 import Intro from "../components/Section/Intro";
 import Work from "../components/Section/Work/Index";
+import React from "react";
 
 const Home: any = (props) => {
   return (

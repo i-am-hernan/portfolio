@@ -140,16 +140,15 @@ const Experience = (props) => {
               }
             >
               <Tabs
-                indicatorColor="red"
                 orientation={matches ? "horizontal" : "vertical"}
                 variant={matches ? "scrollable" : "standard"}
                 value={value}
                 onChange={handleChange}
                 centered={!matches}
                 sx={{
-                  ".MuiTabs-indicator": { bgcolor: "primary.main" },
+                  ".MuiButtonBase-root": { color: "primary.gray" },
                   ".MuiButtonBase-root.MuiTab-root.Mui-selected": {
-                    color: "primary.main",
+                    color: "foreground.main",
                     py: 2,
                   },
                 }}
@@ -183,11 +182,10 @@ const Experience = (props) => {
                       <Typography
                         variant="h5"
                         sx={{
-                          color: "secondary.dark",
+                          color: "foreground.main",
                           fontWeight: "light",
                           display: "inline-block",
                           fontSize: ".9rem",
-                          display: { xs: "none", md: "inline-block" },
                         }}
                       >
                         {job?.title}
@@ -223,7 +221,7 @@ const Experience = (props) => {
                       {job.tasks?.length > 0 &&
                         job.tasks.map((task, i) => {
                           return (
-                            <Box key={i} index={i} sx={{ display: "flex" }}>
+                            <Box key={i} sx={{ display: "flex" }}>
                               <span>
                                 <ArrowRightOutlinedIcon />
                               </span>

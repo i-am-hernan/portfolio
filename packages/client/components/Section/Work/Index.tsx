@@ -14,6 +14,7 @@ import {
 import TerminalContainer from "../Experience/TerminalContainer";
 import { useViewPortPage } from "../../../hooks/useViewPortPage";
 import { forwardRef, createRef } from "react";
+import React from "react";
 
 const Projects = [
   {
