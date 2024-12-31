@@ -61,7 +61,7 @@ export const Footer = () => {
       </Grow>
       <Grow appear={true} in={true} timeout={1600}>
         <Link
-          href="https://github.com/objStevo"
+          href="https://github.com/i-am-hernan"
           sx={{
             color: "secondary.main",
           }}

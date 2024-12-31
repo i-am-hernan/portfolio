@@ -1,5 +1,5 @@
 import { Button, Container, Typography, Box } from "@mui/material";
-
+import React from "react";
 const Contact = () => {
   const handleChange = (e) => {
     e.preventDefault();
@@ -37,7 +37,7 @@ const Contact = () => {
           color: "primary.main",
           textDecoration: "none",
           fontSize: { xs: "3rem", md: "3.5rem" },
-          fontFamily: "Yomogi, cursive",
+          fontFamily: "Roboto Mono, monospace",
           letterSpacing: "-3px",
         }}
         align="center"
@@ -46,7 +46,7 @@ const Contact = () => {
       </Typography>
       <Typography
         sx={{
-          color: "primary.dark",
+          color: "foreground.main",
           textDecoration: "none",
           fontSize: "0.9rem",
           fontWeight: "light",
@@ -67,8 +67,9 @@ const Contact = () => {
           size="large"
           variant="outlined"
           sx={{
-            color: "secondary.main",
-            borderColor: "secondary.main",
+            color: "foreground.main",
+            borderColor: "foreground.main",
+            border: "1px solid",
             ":hover": {
               color: "primary.main",
               borderColor: "primary.main",
